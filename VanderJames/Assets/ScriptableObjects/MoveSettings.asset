@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalMovementSettings:
     moveForce: 20
-    brakeForce: 50
+    brakeForce: 60
     speedCap: 5
     speedCapFrictionPower: 22
   anchorSettings:
