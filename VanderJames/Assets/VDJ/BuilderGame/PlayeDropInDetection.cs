@@ -6,16 +6,28 @@ using Rewired;
 namespace VDJ.BuilderGame {
 	public class PlayeDropInDetection : MonoBehaviour {
 
-		public int numberOfPlayers = 0;
-		public List<int> playerStatus = new List<int>();
+		public int numberOfPlayers;
+		// public List<int> playerStatus = new List<int>();
+		public int[] playerStatus;
 
-		private List<Player> players = new List<Player>();
+		// private List<Player> players = new List<Player>();
+		private Player[] players;
 		private ControllerDetection ctlrDetection;
 
 		void Awake() {
 			ctlrDetection = new ControllerDetection();
 			ctlrDetection.connectionDelegate = IncreasePlayerCount;
 			ctlrDetection.disconnectionDelegate = DecreasePlayerCount;
+
+			numberOfPlayers = 0;
+			playerStatus = new int[4];
+			players = new Player[4];
+
+			for (int i = 0; i < players.Length; i++) {
+				playerStatus[i] = -1;
+				players[i] = ReInput.players.GetPlayer(i);
+				print("got player with id = " + players[i].id);
+			}
 		}
 
 		void Start () {
@@ -23,27 +35,34 @@ namespace VDJ.BuilderGame {
 		}
 
 		void Update () {
-			
+			for (int i = 0; i < numberOfPlayers; i++) {
+				if(players[i].GetButtonDown("Action")) {
+					// playerStatus.Insert(player.id, 1);
+					// playerStatus.RemoveAt(player.id + 1);
+					playerStatus[i] = 1;
+				}
+			}
 		}
 		
-		void IncreasePlayerCount () {
+		void IncreasePlayerCount (int id) {
 			numberOfPlayers += 1;
-			playerStatus.Add(-1);
+			playerStatus[id] = 0;
 
-			Player newPlayer = ReInput.players.GetPlayer(numberOfPlayers - 1);
-			newPlayer.AddInputEventDelegate(OnPressButtonDown, UpdateLoopType.Update, InputActionEventType.ButtonJustPressed, "Action");
-			players.Add(newPlayer);
-			
-			print("player added");
+			print("player " + id + " added");
+
+			print(numberOfPlayers + " remaining");
 		}
 
 		void DecreasePlayerCount (int id) {
 			numberOfPlayers -= 1;
-			playerStatus.RemoveAt(id);
+			playerStatus[id] = -1;
+
+			print("player " + id + " removed");
+			print(numberOfPlayers + " remaining");
 		}
 
 		void OnPressButtonDown(InputActionEventData data) {
-			print("Someone is ready");
+			print("Someone is ready: " + data.player.id);
 		        if(data.GetButtonDown()) {
 		        	int id = data.player.id;
 		        	playerStatus[id] = 1;
@@ -54,7 +73,7 @@ namespace VDJ.BuilderGame {
 
 		public class ControllerDetection {
 
-			public delegate void ControllerConnectedDelegate();
+			public delegate void ControllerConnectedDelegate(int id);
 			public ControllerConnectedDelegate connectionDelegate;
 
 			public delegate void ControllerDisconnectedDelegate(int id);
@@ -71,7 +90,7 @@ namespace VDJ.BuilderGame {
 		    // You can get information about the controller that was connected via the args parameter
 		    void OnControllerConnected(ControllerStatusChangedEventArgs args) {
 		        Debug.Log("A controller was connected! Name = " + args.name + " Id = " + args.controllerId + " Type = " + args.controllerType);
-		        connectionDelegate();
+		        connectionDelegate(args.controllerId);
 		    }
 
 		     // This function will be called when a controller is fully disconnected
