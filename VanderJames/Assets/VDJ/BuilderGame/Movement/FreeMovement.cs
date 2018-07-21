@@ -18,7 +18,7 @@ namespace VDJ.BuilderGame.Movement
             public float speedCapFrictionPower = 22f;
         }
 
-        private PlayerInput input;
+        private IMoveInput input;
         private Settings settings;
         private Rigidbody rb;
 
@@ -26,7 +26,7 @@ namespace VDJ.BuilderGame.Movement
         Vector3 moveAxisInput;
         bool facingLeft = false;
 
-        public FreeMovement(PlayerInput input, Settings settings, Rigidbody rb)
+        public FreeMovement(IMoveInput input, Settings settings, Rigidbody rb)
         {
             this.input = input;
             this.settings = settings;
@@ -37,15 +37,7 @@ namespace VDJ.BuilderGame.Movement
         public bool FacingLeft { get { return facingLeft; } }
 
 
-
-
-        #region IMovement Implementation
-        public void MoveUpdate()
-        {
-            //Intentionally left Blank
-        }
-
-        public void MoveFixedUpdate()
+        public void FixedMove()
         {
             moveAxisInput = input.MoveVector;
 
@@ -55,16 +47,27 @@ namespace VDJ.BuilderGame.Movement
             CheckFacing();
         }
 
-        public void MoveLateUpdate()
+        #region IMovement Implementation
+        void IMovement.MoveUpdate()
         {
             //Intentionally left Blank
         }
 
-        public void Begin()
+        void IMovement.MoveFixedUpdate()
+        {
+            FixedMove();
+        }
+
+        void IMovement.MoveLateUpdate()
+        {
+            //Intentionally left Blank
+        }
+
+        void IMovement.Begin()
         {
         }
 
-        public void Leave()
+        void IMovement.Leave()
         {
         }
         #endregion  
@@ -114,5 +117,10 @@ namespace VDJ.BuilderGame.Movement
                 brakeForce.z = 0;
             rb.AddForce(brakeForce);
         }
+    }
+
+    public interface IMoveInput
+    {
+        Vector3 MoveVector { get; }
     }
 }

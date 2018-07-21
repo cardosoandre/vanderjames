@@ -13,8 +13,8 @@ namespace VDJ.BuilderGame
         public PlayerInput input;
         public FreeMovement playerMovement;
         public Rigidbody rb;
-        public PopupHandleFinder popupHandleFinder;
-        public Transform popupHandleIndicator;
+        public HandleFinder HandleFinder;
+        public Transform HandleIndicator;
 
         [Space]
         public MovementSettings settings;
@@ -29,7 +29,7 @@ namespace VDJ.BuilderGame
         {
             ToFreeMove();
             GoToFreeState();
-            popupHandleFinder.TargetChanged += PopupHandleFinder_TargetChanged;
+            HandleFinder.TargetChanged += HandleFinder_TargetChanged;
         }
 
         private void Update()
@@ -73,9 +73,9 @@ namespace VDJ.BuilderGame
 
 
 
-        private void PopupHandleFinder_TargetChanged(Utils.TargetChangeEventData<Objects.PopupHandle> ev)
+        private void HandleFinder_TargetChanged(Utils.TargetChangeEventData<Handle> ev)
         {
-            popupHandleIndicator.gameObject.SetActive(ev.NewTarget != null);
+            HandleIndicator.gameObject.SetActive(ev.NewTarget != null);
         }
 
 
@@ -93,7 +93,7 @@ namespace VDJ.BuilderGame
 
         #region State Changes
 
-        private void GrabHandle(PopupHandle target)
+        private void GrabHandle(Handle target)
         {
             SetState(new HandleState(target, this));
         }
@@ -138,13 +138,13 @@ namespace VDJ.BuilderGame
 
             public override void Update()
             {
-                if(owner.input.IsMainButtonCurrentlyDown && owner.popupHandleFinder.Target != null)
+                if(owner.input.IsMainButtonCurrentlyDown && owner.HandleFinder.Target != null)
                 {
-                    TryGrab(owner.popupHandleFinder.Target);
+                    TryGrab(owner.HandleFinder.Target);
                 }
             }
 
-            private void TryGrab(PopupHandle target)
+            private void TryGrab(Handle target)
             {
                 if (target.CanBeGrabbed)
                     owner.GrabHandle(target);
@@ -152,11 +152,11 @@ namespace VDJ.BuilderGame
         }
 
 
-        private class HandleState : State, PopupHandle.IPullProvider
+        private class HandleState : State, Handle.IPullProvider
         {
-            private PopupHandle handle;
+            private Handle handle;
 
-            public HandleState(PopupHandle handle, PlayerController owner) : base(owner)
+            public HandleState(Handle handle, PlayerController owner) : base(owner)
             {
                 this.handle = handle;
             }

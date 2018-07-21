@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace VDJ.BuilderGame
+namespace VDJ.BuilderGame.Movement
 {
-    public class PlayerInput : MonoBehaviour
+    public class PlayerInput : MonoBehaviour, IMoveInput
     {
         public KeyCode mainKey = KeyCode.Space;
 

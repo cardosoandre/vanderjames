@@ -42,7 +42,10 @@ namespace VDJ.BuilderGame.Movement
         }
         public void MoveFixedUpdate()
         {
-            //Intentionally left Blank
+            if(stuck)
+            {
+                UpdateStuck();
+            }
         }
 
         public void MoveLateUpdate()
@@ -80,7 +83,7 @@ namespace VDJ.BuilderGame.Movement
 
         private void UpdateStuck()
         {
-            Transform.position = Anchor.position;
+            Transform.position = Vector3.SmoothDamp(Transform.position, Anchor.position, ref dampVel, settings.dampSmoothTime);
         }
 
 

@@ -8,14 +8,14 @@ using VDJ.Utils;
 
 namespace VDJ.BuilderGame
 {
-    public class PopupHandleFinder : ObjectFinder<PopupHandle>
+    public class HandleFinder : ObjectFinder<Handle>
     {
-        protected override float TargetScoreFunction(PopupHandle t)
+        protected override float TargetScoreFunction(Handle t)
         {
             return ClosenessToMe(t);
         }
 
-        private float ClosenessToMe(PopupHandle t)
+        private float ClosenessToMe(Handle t)
         {
             return -Vector3.Distance(transform.position, t.transform.position);
         }

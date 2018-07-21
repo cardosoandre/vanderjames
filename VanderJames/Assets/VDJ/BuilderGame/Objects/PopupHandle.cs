@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace VDJ.BuilderGame.Objects
 {
-    public class PopupHandle : MonoBehaviour
+    public class PopupHandle : Handle
     { 
         
         [Serializable]
@@ -29,15 +29,15 @@ namespace VDJ.BuilderGame.Objects
 
         private IPullProvider pullProvider;
 
-        public bool CanBeGrabbed { get { return !grabbed; } }
-        public Transform Anchor { get { return anchor.transform; } }
+        public override bool CanBeGrabbed { get { return !grabbed; } }
+        public override Transform Anchor { get { return anchor.transform; } }
 
-        public void OnGrab(IPullProvider pullProvider)
+        public override void OnGrab(IPullProvider pullProvider)
         {
             this.pullProvider = pullProvider;
             grabbed = true;
         }
-        public void OnLeave()
+        public override void OnLeave()
         {
             grabbed = false;
         }
@@ -80,9 +80,5 @@ namespace VDJ.BuilderGame.Objects
         private float PullVel { get { return 1 / settings.pullTime; } }
         private float BackVel { get { return 1 / settings.backTime; } }
 
-        public interface IPullProvider
-        {
-            Vector3 Pull { get; }
-        }
     }
 }
