@@ -10,13 +10,13 @@ namespace VDJ.BuilderGame.Objects
     {
         public Transform dummySpawnPoint;
 
-        private void OnTriggerEnter(Collider other)
-        {
-            var playerController = other.GetComponent<PlayerController>();
+        // private void OnTriggerEnter(Collider other)
+        // {
+        //     var playerController = other.GetComponent<PlayerController>();
 
-            if (playerController != null)
-                playerController.OnFell(this, CalculateRespawnPoint(playerController));
-        }
+        //     if (playerController != null)
+        //         playerController.OnFell(this, CalculateRespawnPoint(playerController));
+        // }
 
         private Vector3 CalculateRespawnPoint(PlayerController playerController)
         {

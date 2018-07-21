@@ -8,7 +8,7 @@ using VDJ.BuilderGame.Objects;
 
 namespace VDJ.BuilderGame
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, ICargo
     {
         public PlayerInput input;
         public FreeMovement playerMovement;
@@ -50,6 +50,15 @@ namespace VDJ.BuilderGame
         {
             
         }
+
+        public void Load() {
+            
+        }
+
+        public void Release() {
+
+        }
+
         #endregion  
 
 
@@ -147,7 +156,7 @@ namespace VDJ.BuilderGame
 
         private void GoToOnBoatState()
         {
-            throw new NotImplementedException();
+            SetState(new OnBoatState(this));
         }
         #endregion
 
@@ -289,7 +298,7 @@ namespace VDJ.BuilderGame
 
             public override void Begin()
             {
-                
+                owner.ToNoMove();
             }
 
             public override void Leave()

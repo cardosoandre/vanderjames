@@ -7,5 +7,6 @@ namespace VDJ.BuilderGame
 {
     class BoatChecker
     {
+    	
     }
 }
