@@ -14,6 +14,7 @@ namespace VDJ.BuilderGame.Resources
         public ResourceTokenFinder finder;
 
         public UnityEvent CostMet;
+        public UnityEvent ValueChanged;
 
 
         private void Awake()
@@ -36,6 +37,7 @@ namespace VDJ.BuilderGame.Resources
             if(cost.IsMet)
             {
                 OnCostMet();
+                ValueChanged.Invoke();
             }
         }
 
