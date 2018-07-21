@@ -31,6 +31,14 @@ namespace VDJ.BuilderGame
             }
         }
 
+        public bool IsMainButtonCurrentlyDown
+        {
+            get
+            {
+                return Input.GetKey(mainKey);
+            }
+        }
+
         public Vector3 MoveVector { get { return new Vector3(Horizontal, 0, Vertical).normalized; } }
     }
 }

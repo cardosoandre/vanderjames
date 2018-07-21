@@ -17,6 +17,7 @@ namespace VDJ.BuilderGame.Objects
 
         public static Popup.TransformData Lerp(Popup.TransformData d1, Popup.TransformData d2, float t)
         {
+            //Debug.LogFormat("d1: {0}, d2: {1}, t: {2}", d1.ToString(), d2.ToString(), t);
             return new Popup.TransformData()
             {
                 Position = Vector3.Lerp(d1.Position, d2.Position, t),

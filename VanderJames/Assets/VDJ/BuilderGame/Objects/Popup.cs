@@ -12,14 +12,13 @@ namespace VDJ.BuilderGame.Objects
         [Serializable]
         public class TransformData
         {
-            public Vector3 Position;
-            public Quaternion Rotation;
-            public Vector3 Scale;
+            public Vector3 Position = Vector3.zero;
+            public Quaternion Rotation = Quaternion.identity;
+            public Vector3 Scale = Vector3.one;
         }
-
-        [HideInInspector]
+        
         public TransformData start;
-        [HideInInspector]
+        
         public TransformData end;
 
         [Range(0, 1)]
