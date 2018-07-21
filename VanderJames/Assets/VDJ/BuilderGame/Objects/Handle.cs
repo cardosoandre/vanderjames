@@ -19,6 +19,7 @@ namespace VDJ.BuilderGame.Objects
         public interface IPullProvider
         {
             Vector3 Pull { get; }
+            void ForceRelease();
         }
     }
 }

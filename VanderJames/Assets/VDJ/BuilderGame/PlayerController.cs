@@ -175,6 +175,11 @@ namespace VDJ.BuilderGame
                 owner.ToAnchor(handle.Anchor);
             }
 
+            public void ForceRelease()
+            {
+                owner.GoToFreeState();
+            }
+
             public override void Leave()
             {
                 handle.OnLeave();

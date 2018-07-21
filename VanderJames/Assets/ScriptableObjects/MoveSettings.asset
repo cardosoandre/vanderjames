@@ -14,7 +14,7 @@ MonoBehaviour:
   normalMovementSettings:
     moveForce: 20
     brakeForce: 50
-    speedCap: 10
+    speedCap: 5
     speedCapFrictionPower: 22
   anchorSettings:
     dampSmoothTime: 0.1

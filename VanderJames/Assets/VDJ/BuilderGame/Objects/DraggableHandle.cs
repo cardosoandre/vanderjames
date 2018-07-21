@@ -89,6 +89,12 @@ namespace VDJ.BuilderGame.Objects
             grabbed = false;
         }
 
+        public void ForceLeave()
+        {
+            if (pullProvider != null)
+                pullProvider.ForceRelease();
+        }
+
         private void Awake()
         {
             moveInput = new HandleMoveInput(this);

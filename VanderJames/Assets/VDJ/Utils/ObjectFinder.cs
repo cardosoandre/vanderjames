@@ -11,12 +11,17 @@ namespace VDJ.Utils
         private List<T> InArea = new List<T>();
 
 
-        public IEnumerable<T> AllInArea { get { return InArea.AsEnumerable(); } }
+        public IEnumerable<T> AllInArea { get { return InArea.Where(x=>x!=null); } }
 
         public T Target { get; private set; }
         public event Action<TargetChangeEventData<T>> TargetChanged;
 
-        
+
+        public event Action<T> OnNewObject;
+
+        private bool wasOnZero = false;
+
+
 
         #region Unity Messages
         private void Awake()
@@ -35,7 +40,6 @@ namespace VDJ.Utils
 
         private void OnTriggerExit(Collider other)
         {
-
             var target = other.GetComponent<T>();
 
             if (target != null)
@@ -44,6 +48,7 @@ namespace VDJ.Utils
 
         private void Update()
         {
+
             CheckForMainTargetChanges();
         }
         #endregion
@@ -52,10 +57,13 @@ namespace VDJ.Utils
         private void OnObjectEnter(T target)
         {
             InArea.Add(target);
+            if (OnNewObject != null)
+                OnNewObject(target);
         }
 
         private void OnObjectLeft(T target)
         {
+            Debug.LogFormat("Object Left:  {0}", target);
             InArea.Remove(target);
         }
 
@@ -69,16 +77,47 @@ namespace VDJ.Utils
 
         private void CheckForMainTargetChanges()
         {
+            CheckDead();
 
-            var best = InArea.Count == 0? default(T) : AllInArea.OrderBy(x => TargetScoreFunction(x)).First();
-            if (!Equals(best, Target))
+            Debug.LogFormat("{0}: {1}", this, InArea.Count);
+            if (InArea.Count == 0)
             {
-                var prev = Target;
-                Target = best;
-                OnTargetChangedFrom(Target);
+                if(!wasOnZero)
+                {
+                    wasOnZero = true;
+                    Target = default(T);
+                    OnTargetChangedFrom(Target);
+                } 
+            } else
+            {
+                wasOnZero = false;
+                var best = AllInArea.OrderBy(x => TargetScoreFunction(x)).First();
+
+                if (!Equals(best, Target))
+                {
+                    var prev = Target;
+                    Target = best;
+                    OnTargetChangedFrom(Target);
+                }
             }
         }
 
+        private void CheckDead()
+        {
+
+            for (int i = InArea.Count-1; i >=0 ; i--)
+            {
+                if(typeof(T).IsSubclassOf(typeof(UnityEngine.Object)))
+                {
+                    UnityEngine.Object obj = InArea[i] as UnityEngine.Object;
+                    if(obj == null)
+                    {
+                        Debug.Log("Destroyed");
+                        InArea.RemoveAt(i);
+                    }
+                }
+            }
+        }
 
         protected abstract float TargetScoreFunction(T t);
 
