@@ -16,7 +16,9 @@ namespace VDJ.BuilderGame.Objects
             public Quaternion Rotation = Quaternion.identity;
             public Vector3 Scale = Vector3.one;
         }
-        
+
+        public AnimationCurve curve ;
+
         public TransformData start;
         
         public TransformData end;
@@ -30,7 +32,7 @@ namespace VDJ.BuilderGame.Objects
 
         public void Update()
         {
-            transform.Apply(PopupHelpers.Lerp(start, end, progress));
+            transform.Apply(PopupHelpers.Lerp(start, end,curve.Evaluate(progress)));
         }
 
         [Button]

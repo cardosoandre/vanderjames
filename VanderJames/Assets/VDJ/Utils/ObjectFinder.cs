@@ -78,8 +78,7 @@ namespace VDJ.Utils
         private void CheckForMainTargetChanges()
         {
             CheckDead();
-
-            Debug.LogFormat("{0}: {1}", this, InArea.Count);
+            
             if (InArea.Count == 0)
             {
                 if(!wasOnZero)

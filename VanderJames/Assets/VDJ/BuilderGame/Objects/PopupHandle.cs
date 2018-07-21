@@ -59,7 +59,6 @@ namespace VDJ.BuilderGame.Objects
         {
             if (grabbed)
             {
-                Debug.Log(pullProvider.Pull.z);
                 pull += Mathf.Abs(PullVel * pullProvider.Pull.z) * Time.deltaTime;
             }
             else
