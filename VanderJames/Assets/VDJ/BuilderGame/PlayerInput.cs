@@ -1,17 +1,24 @@
 ﻿using UnityEngine;
+using Rewired;
 
 namespace VDJ.BuilderGame
 {
     public class PlayerInput : MonoBehaviour
     {
-        public KeyCode mainKey = KeyCode.Space;
 
+        public Player player;
+        public int playerID;
+
+        private void Awake()
+        {
+            player = ReInput.players.GetPlayer(playerID);
+        }
 
         public float Horizontal
         {
             get
             {
-                return Input.GetAxisRaw("Horizontal");
+                return player.GetAxis("Horizontal");
             }
         }
 
@@ -19,7 +26,7 @@ namespace VDJ.BuilderGame
         {
             get
             {
-                return Input.GetAxisRaw("Vertical");
+                return player.GetAxis("Vertical");
             }
         }
 
@@ -27,7 +34,7 @@ namespace VDJ.BuilderGame
         {
             get
             {
-                return Input.GetKeyDown(mainKey);
+                return player.GetButtonDown("Action");
             }
         }
 
