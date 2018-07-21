@@ -14,14 +14,44 @@ namespace VDJ.BuilderGame
         public FreeMovement playerMovement;
         public Rigidbody rb;
         public HandleFinder HandleFinder;
+
         public Transform HandleIndicator;
 
         [Space]
-        public MovementSettings settings;
+        public MovementSettings MoveSettings;
+        public Settings settings;
+
+        [Serializable]
+        public class Settings
+        {
+            public float respawnTime = 2.0f;
+        }
 
 
         State state;
         IMovement movement;
+
+
+
+        #region Events
+        public void OnFell(WaterHazard waterHazard, Vector3 respawnPoint)
+        {
+            GoToRespawnState(respawnPoint);
+        }
+
+
+        public void OnTouchedBoat(BoatPlayerCrossing boatPlayerCrossing)
+        {
+            state.OnTouchedBoat(boatPlayerCrossing);
+            GoToOnBoatState();
+        }
+
+        public void OnLeftBoatTouch(BoatPlayerCrossing boatPlayerCrossing)
+        {
+            
+        }
+        #endregion  
+
 
         #region Unity Messages
 
@@ -82,12 +112,18 @@ namespace VDJ.BuilderGame
         #region Movement Changes
         private void ToFreeMove()
         {
-            SetMovement(new FreeMovement(input, settings.normalMovementSettings, rb));
+            SetMovement(new FreeMovement(input, MoveSettings.normalMovementSettings, rb));
         }
 
         private void ToAnchor(Transform anchor)
         {
-            SetMovement(new AnchoredMovement(anchor, rb, settings.anchorSettings));
+            SetMovement(new AnchoredMovement(anchor, rb, MoveSettings.anchorSettings));
+        }
+
+
+        private void ToNoMove()
+        {
+            SetMovement(new NoMovement(rb));
         }
         #endregion
 
@@ -101,6 +137,17 @@ namespace VDJ.BuilderGame
         private void GoToFreeState()
         {
             SetState(new FreeState(this));
+        }
+
+        private void GoToRespawnState(Vector3 target)
+        {
+            SetState(new RespawnState(target, settings.respawnTime, this));
+        }
+
+
+        private void GoToOnBoatState()
+        {
+            throw new NotImplementedException();
         }
         #endregion
 
@@ -118,6 +165,10 @@ namespace VDJ.BuilderGame
 
             public abstract void Begin();
             public abstract void Leave();
+
+            public virtual void OnTouchedBoat(BoatPlayerCrossing boatPlayerCrossing)
+            {
+            }
         }
 
         private class FreeState : State
@@ -149,6 +200,7 @@ namespace VDJ.BuilderGame
                 if (target.CanBeGrabbed)
                     owner.GrabHandle(target);
             }
+            
         }
 
 
@@ -191,6 +243,63 @@ namespace VDJ.BuilderGame
                 {
                     owner.GoToFreeState();
                 }
+            }
+        }
+
+
+        private class RespawnState : State
+        {
+            private float remainingTime;
+
+            private Vector3 spawnTarget;
+
+            public RespawnState(Vector3 spawnTarget, float duration, PlayerController owner) : base(owner)
+            {
+                this.spawnTarget = spawnTarget;
+                this.remainingTime = duration;
+            }
+
+            public override void Begin()
+            {
+                owner.ToNoMove();
+            }
+
+            public override void Leave()
+            {
+            }
+
+            public override void Update()
+            {
+                remainingTime -= Time.deltaTime;
+                if(remainingTime <= 0)
+                {
+                    owner.transform.position = spawnTarget;
+                    owner.GoToFreeState();
+                }
+            }
+        }
+
+        private class OnBoatState : State
+        {
+
+            public OnBoatState(PlayerController owner):base(owner)
+            {
+
+            }
+
+            public override void Begin()
+            {
+                
+            }
+
+            public override void Leave()
+            {
+                
+            }
+
+            public override void Update()
+            {
+                
             }
         }
         #endregion
