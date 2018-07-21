@@ -7,10 +7,8 @@ namespace VDJ.BuilderGame {
 	public class PlayeDropInDetection : MonoBehaviour {
 
 		public int numberOfPlayers;
-		// public List<int> playerStatus = new List<int>();
 		public int[] playerStatus;
 
-		// private List<Player> players = new List<Player>();
 		private Player[] players;
 		private ControllerDetection ctlrDetection;
 
@@ -41,6 +39,19 @@ namespace VDJ.BuilderGame {
 					// playerStatus.RemoveAt(player.id + 1);
 					playerStatus[i] = 1;
 				}
+			}
+
+
+			bool allOk = true;
+			foreach (int status in playerStatus) {
+				if (status == 0) {
+					allOk = false;
+				}
+			}
+
+			if (allOk == true && numberOfPlayers > 0) {
+				//initialize game with
+				print("GAME IS READY TO BEGIN!!!!");
 			}
 		}
 		
