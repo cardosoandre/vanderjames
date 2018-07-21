@@ -4,6 +4,7 @@ TextureImporter:
   fileIDToRecycleName:
     21300000: Mario_0
     21300002: Mario_1
+    21300004: Mario_2
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -121,6 +122,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f375bb25650af2649bcdc3cec556d110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mario_2
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 621
+        width: 23
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a3a40e6ee7a85e4980b40d1e6d425ae
       vertices: []
       indices: 
       edges: []

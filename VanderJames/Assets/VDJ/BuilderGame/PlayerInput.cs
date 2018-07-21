@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using Rewired;
 
-namespace VDJ.BuilderGame
+namespace VDJ.BuilderGame.Movement
 {
-    public class PlayerInput : MonoBehaviour
+    public class PlayerInput : MonoBehaviour, IMoveInput
     {
 
         public Player player;
@@ -35,6 +35,14 @@ namespace VDJ.BuilderGame
             get
             {
                 return player.GetButtonDown("Action");
+            }
+        }
+
+        public bool IsMainButtonCurrentlyDown
+        {
+            get
+            {
+                return player.GetButton("Action");
             }
         }
 
