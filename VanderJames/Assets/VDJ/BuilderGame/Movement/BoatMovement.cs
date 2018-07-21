@@ -118,20 +118,20 @@ namespace VDJ.BuilderGame {
 
 	        	public override void Update() {
 	        		// The step size is equal to speed times frame time.
-	        		float step = speed * Time.deltaTime;
+	        		float step = owner.speed * Time.deltaTime;
 
 	        		// Move our position a step closer to the target.
-	        		if (direction == Direction.Right) {
-	        			transform.position = Vector3.MoveTowards(transform.position, rightSideDock.transform.position, step);
+	        		if (owner.direction == Direction.Right) {
+	        			owner.transform.position = Vector3.MoveTowards(owner.transform.position, owner.rightSideDock.transform.position, step);
 	        		}
 	        		else {
-	        			transform.position = Vector3.MoveTowards(transform.position, leftSideDock.transform.position, step);
+	        			owner.transform.position = Vector3.MoveTowards(owner.transform.position, owner.leftSideDock.transform.position, step);
 	        		}
 
-	        		if(transform.position == rightSideDock.transform.position) {
+	        		if(owner.transform.position == owner.rightSideDock.transform.position) {
 	        			owner.GoToDockedState();
 	        		}
-	        		else if (transform.position == leftSideDock.transform.position) {
+	        		else if (owner.transform.position == owner.leftSideDock.transform.position) {
 	        			owner.GoToDockedState();
 	        		}
 	        	}
