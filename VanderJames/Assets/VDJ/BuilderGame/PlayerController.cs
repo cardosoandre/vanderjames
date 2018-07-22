@@ -43,10 +43,10 @@ namespace VDJ.BuilderGame
         }
 
 
-        public void OnTouchedBoat(BoatPlayerCrossing boatPlayerCrossing)
+        public void OnTouchedBoat(BoatMachineState boatMachineState)
         {
-            state.OnTouchedBoat(boatPlayerCrossing);
-            GoToOnBoatState();
+            state.OnTouchedBoat(boatMachineState);
+            GoToOnBoatState(boatMachineState.transform);
         }
 
         public void OnLeftBoatTouch(BoatPlayerCrossing boatPlayerCrossing)
@@ -54,12 +54,12 @@ namespace VDJ.BuilderGame
             
         }
 
-        public void Load() {
+        public void LoadIntoBoat() {
             
         }
 
         public void Release() {
-
+            GoToFreeState();
         }
 
         #endregion  
@@ -136,8 +136,6 @@ namespace VDJ.BuilderGame
         }
 
 
-
-
         private void HandleFinder_TargetChanged(Utils.TargetChangeEventData<Handle> ev)
         {
             HandleIndicator.gameObject.SetActive(ev.NewTarget != null);
@@ -184,9 +182,9 @@ namespace VDJ.BuilderGame
         }
 
 
-        private void GoToOnBoatState()
+        private void GoToOnBoatState(Transform boatAnchor)
         {
-            SetState(new OnBoatState(this));
+            SetState(new OnBoatState(this, boatAnchor));
         }
         #endregion
 
@@ -205,7 +203,7 @@ namespace VDJ.BuilderGame
             public abstract void Begin();
             public abstract void Leave();
 
-            public virtual void OnTouchedBoat(BoatPlayerCrossing boatPlayerCrossing)
+            public virtual void OnTouchedBoat(BoatMachineState boatMachineState)
             {
             }
         }
@@ -259,7 +257,12 @@ namespace VDJ.BuilderGame
                 if (target.CanBeGrabbed)
                     owner.GrabHandle(target);
             }
-            
+
+            public override void OnTouchedBoat(BoatMachineState boatMachineState)
+            {
+                base.OnTouchedBoat(boatMachineState);
+                owner.GoToOnBoatState(boatMachineState.transform);
+            }
         }
 
 
@@ -340,14 +343,16 @@ namespace VDJ.BuilderGame
 
         private class OnBoatState : State
         {
+            private Transform anchor;
 
-            public OnBoatState(PlayerController owner):base(owner)
+            public OnBoatState(PlayerController owner, Transform boatAnchor):base(owner)
             {
-
+                anchor = boatAnchor;
             }
 
             public override void Begin()
             {
+                print("began onBoatState");
                 owner.ToNoMove();
             }
 
@@ -358,7 +363,7 @@ namespace VDJ.BuilderGame
 
             public override void Update()
             {
-                
+                owner.transform.position = anchor.position;
             }
         }
         #endregion

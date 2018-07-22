@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-interface ICargo {
-
-	void Load();
-	void Release();
+namespace VDJ.BuilderGame {
+	public interface ICargo {
+		void LoadIntoBoat();
+		void Release();
+	}
 }
+
