@@ -4,79 +4,54 @@ using UnityEngine.UI;
 using VDJ.BuilderGame.GameState;
 using System.Linq;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace VDJ.BuilderGame {
 	public class PlayeDropInDetection : MonoBehaviour {
-
-		public int numberOfPlayers;
-		public int[] playerStatus;
-
+        
         public PlayerConfig[] playerConfigs;
+        public int numberOfJointPlayers = 0;
+        public bool[] jointPlayers = new bool[3] { false, false, false };
 
-        private Player[] players;
+        private Player[] players = new Player[3];
 		private ControllerDetection ctlrDetection;
-
-        private bool TriggeredReady = false;
 
         [Space]
         public GameObject countDownText;
         public GameObject[] canvasStatusText;
 
 		void Awake() {
-			ctlrDetection = new ControllerDetection();
-			ctlrDetection.connectionDelegate = IncreasePlayerCount;
-			ctlrDetection.disconnectionDelegate = DecreasePlayerCount;
-            
+            ctlrDetection = new ControllerDetection(this);
 
-			playerStatus = new int[3];
-			players = new Player[3];
-
-			for (int i = 0; i < players.Length; i++) {
-				playerStatus[i] = -1;
-				players[i] = ReInput.players.GetPlayer(i);
-				print("got player with id = " + players[i].id);
-			}
+            int i = 0;
+            foreach (Player p in ReInput.players.Players) {
+                players[i] = p;
+                i++;
+            }
 		}
 
 		void Start () {
-			print("We have " + numberOfPlayers + " Players, 0 are ready");
+			
 		}
 
 		void Update () {
-			for (int i = 0; i < numberOfPlayers; i++) {
-				if(players[i].GetButtonDown("Action")) {
-					playerStatus[i] = 1;
-				}
-			}
 
-
-			bool allOk = true;
             for (int i = 0; i < 3; i++) {
-                if (playerStatus[i] == 0) {
-                    allOk = false;
-				}
+				if(players[i].GetButtonDown("Action")) {
+                    if (jointPlayers[i]) {
+                        StartCoroutine(StartGame());
+                    }
 
-                Text textScript;
-                switch (playerStatus[i])
-                {
-                    case -1:
-                        textScript = canvasStatusText[i].GetComponent<Text>();
-                        textScript.text = "Conecte um controle!";
-                        break;
-                    case 0:
-                        textScript = canvasStatusText[i].GetComponent<Text>();
-                        textScript.text = "Aperte X";
-                        break;
-                    case 1:
-                        textScript = canvasStatusText[i].GetComponent<Text>();
-                        textScript.text = "Player " + (i+1) + " pronto";
-                        break;
+                    jointPlayers[i] = true;
+                    ++numberOfJointPlayers;
+
+                    canvasStatusText[i].GetComponent<Text>().text = "Jogador " + i + " pronto!";
                 }
 			}
 
-			if (allOk == true && numberOfPlayers > 0) {
-                StartCoroutine(StartGame());
-			}
+            if(numberOfJointPlayers > 0) {
+                countDownText.GetComponent<Text>().text = "Pressione o botão \nnovamente para começar!";
+            }
 		}
 		
         IEnumerator StartGame() {
@@ -86,63 +61,34 @@ namespace VDJ.BuilderGame {
             yield return new WaitForSeconds(1);
             countDownText.GetComponent<Text>().text = "Iniciando em 1";
             yield return new WaitForSeconds(1);
-            GameStateManager.Instance.GoToBattle(playerConfigs.Take(numberOfPlayers).ToArray());
+            GameStateManager.Instance.GoToBattle(playerConfigs.Take(numberOfJointPlayers).ToArray());
         }
 
-		void IncreasePlayerCount (int id) {
-			numberOfPlayers += 1;
-			playerStatus[id] = 0;
+        private class ControllerDetection {
 
-			print("player " + id + " added");
+            private PlayeDropInDetection owner;
 
-			print(numberOfPlayers + " remaining");
-		}
-
-		void DecreasePlayerCount (int id) {
-			numberOfPlayers -= 1;
-			playerStatus[id] = -1;
-
-			print("player " + id + " removed");
-			print(numberOfPlayers + " remaining");
-		}
-
-		void OnPressButtonDown(InputActionEventData data) {
-			print("Someone is ready: " + data.player.id);
-		        if(data.GetButtonDown()) {
-		        	int id = data.player.id;
-		        	playerStatus[id] = 1;
-
-		        	print("Player " + id + " IS READY!");
-		        }
-		}
-
-		public class ControllerDetection {
-
-			public delegate void ControllerConnectedDelegate(int id);
-			public ControllerConnectedDelegate connectionDelegate;
-
-			public delegate void ControllerDisconnectedDelegate(int id);
-			public ControllerDisconnectedDelegate disconnectionDelegate;
-
-			public ControllerDetection() {
+            public ControllerDetection(PlayeDropInDetection playerDropIn) {
 				// Subscribe to events
 		        ReInput.ControllerConnectedEvent += OnControllerConnected;
 		        ReInput.ControllerDisconnectedEvent += OnControllerDisconnected;
 		        ReInput.ControllerPreDisconnectEvent += OnControllerPreDisconnect;
+
+                owner = playerDropIn;
 			}
 
 		    // This function will be called when a controller is connected
 		    // You can get information about the controller that was connected via the args parameter
 		    void OnControllerConnected(ControllerStatusChangedEventArgs args) {
 		        Debug.Log("A controller was connected! Name = " + args.name + " Id = " + args.controllerId + " Type = " + args.controllerType);
-		        connectionDelegate(args.controllerId);
+               
+                AssignJoystickToNextOpenPlayer(ReInput.controllers.GetJoystick(args.controllerId));
 		    }
 
 		     // This function will be called when a controller is fully disconnected
 		     // You can get information about the controller that was disconnected via the args parameter
 		     void OnControllerDisconnected(ControllerStatusChangedEventArgs args) {
 		        Debug.Log("A controller was disconnected! Name = " + args.name + " Id = " + args.controllerId + " Type = " + args.controllerType);
-		        disconnectionDelegate(args.controllerId);
 		    }
 
 		     // This function will be called when a controller is about to be disconnected
@@ -151,6 +97,20 @@ namespace VDJ.BuilderGame {
 		     void OnControllerPreDisconnect(ControllerStatusChangedEventArgs args) {
 		        Debug.Log("A controller is being disconnected! Name = " + args.name + " Id = " + args.controllerId + " Type = " + args.controllerType);
 		    }
+
+            void AssignJoystickToNextOpenPlayer(Joystick j)
+            {
+                int i = 0;
+                foreach (Player p in ReInput.players.Players)
+                {
+                    if (p.controllers.joystickCount > 0 || owner.jointPlayers[i]) {
+                        continue; // player already has a joystick
+                    }
+                    p.controllers.AddController(j, true); // assign joystick to player
+                    i++;
+                    return;
+                }
+            }
 
 		    void OnDestroy() {
 		        // Unsubscribe from events
