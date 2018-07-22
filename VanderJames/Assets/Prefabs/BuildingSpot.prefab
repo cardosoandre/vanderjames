@@ -481,8 +481,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1371261480716164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00000012516875, y: 0, z: -0.5100002}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.114, y: 0, z: -0.49500015}
+  m_LocalScale: {x: 0.8519, y: 1, z: 1.1575096}
   m_Children:
   - {fileID: 4139116442688704}
   m_Father: {fileID: 4525424517890774}
@@ -622,7 +622,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174150874665366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.12543643, y: 0.5, z: 1.0411365}
+  m_LocalPosition: {x: -8.234, y: 0, z: -2.0709543}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4964829468042694}
@@ -639,8 +639,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1052370830209924}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.1, z: -0.07}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.059, z: 0}
+  m_LocalScale: {x: 0.8519, y: 0.7182808, z: 1}
   m_Children: []
   m_Father: {fileID: 4664159502846824}
   m_RootOrder: 1
@@ -665,9 +665,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1540928597041544}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.00000012516875, y: 0.1, z: -0.07000023}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.059, z: 0}
+  m_LocalScale: {x: 0.8519, y: 0.7182808, z: 1}
   m_Children: []
   m_Father: {fileID: 4525424517890774}
   m_RootOrder: 4
@@ -737,8 +737,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6710214, y: 0.2307942, z: 0.5964342}
-  m_Center: {x: -0.019651523, y: 0.09259286, z: 0.31368068}
+  m_Size: {x: 0.826448, y: 0.2307942, z: 0.59643424}
+  m_Center: {x: -0.09736463, y: 0.09259286, z: 0.3136807}
 --- !u!65 &65850418243260268
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -820,8 +820,8 @@ MonoBehaviour:
   point: {fileID: 114547281456092082}
   resourceOne: {fileID: 224233971747823682}
   resourceTwo: {fileID: 224881874139601080}
-  r1: {fileID: 21300000, guid: 8643453edbde9400c9b4c7cde8fffc13, type: 3}
-  r2: {fileID: 21300000, guid: 2baa087bb3ff54270aa0338730afdc49, type: 3}
+  r1: {fileID: 21300002, guid: ae40ff0cfd34644de9e2e8b0f7be420e, type: 3}
+  r2: {fileID: 21300000, guid: ae40ff0cfd34644de9e2e8b0f7be420e, type: 3}
   completeColor: {r: 0.5187068, g: 0.617128, b: 0.9044118, a: 0.7058824}
 --- !u!114 &114051101339873728
 MonoBehaviour:
@@ -896,16 +896,16 @@ MonoBehaviour:
     cost:
       requirements:
       - type: 0
-        quantity: 2
-      - type: 1
         quantity: 1
-    sprite: {fileID: 21300000, guid: 1e6543698e0384be5882ef0e6016b20d, type: 3}
-    name: Predio
+      - type: 1
+        quantity: 2
+    sprite: {fileID: 21300000, guid: 53fe78a544c4f1c4b8ce5a872f8c7c14, type: 3}
+    name: Casa
     score: 10
     hasText: 1
     lineCharacter: '@nassau'
-    lineText: "Este pr\xE9dio vai ser muito \xFAtil"
-    lineColor: {r: 0, g: 0, b: 0, a: 0}
+    lineText: "Vou fazer a minha casa na Cidade Maur\xEDcia! Vai atrair muitos cidad\xE3os."
+    lineColor: {r: 0.91764706, g: 0.43137255, b: 0.35686275, a: 1}
   lr: {fileID: 120671150003276966}
 --- !u!114 &114054479228697834
 MonoBehaviour:
@@ -983,7 +983,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8643453edbde9400c9b4c7cde8fffc13, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ae40ff0cfd34644de9e2e8b0f7be420e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1374,11 +1374,11 @@ MonoBehaviour:
   textMesh: {fileID: 0}
   rawTopLeftBounds: {x: 34.97, y: -24.795, z: 0}
   rawBottomRightBounds: {x: -34.97, y: 24.795, z: 0}
-  topLeftBounds: {x: -7.0474806, y: 1.193565, z: -1.2774985}
-  topRightBounds: {x: -6.5579004, y: 1.193565, z: -1.2774985}
-  bottomLeftBounds: {x: -7.0474806, y: 0.846435, z: -1.2774985}
-  bottomRightBounds: {x: -6.5579004, y: 0.846435, z: -1.2774985}
-  centerBounds: {x: -6.8026905, y: 1.02, z: -1.2774985}
+  topLeftBounds: {x: -7.77649, y: 1.193565, z: -2.5349543}
+  topRightBounds: {x: -7.2869105, y: 1.193565, z: -2.5349543}
+  bottomLeftBounds: {x: -7.77649, y: 0.846435, z: -2.5349543}
+  bottomRightBounds: {x: -7.2869105, y: 0.846435, z: -2.5349543}
+  centerBounds: {x: -7.5317, y: 1.02, z: -2.5349543}
   maxX: 48.68571
   minY: -6.9900017
   unwrappedMaxX: 48.68571
@@ -1443,7 +1443,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8643453edbde9400c9b4c7cde8fffc13, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ae40ff0cfd34644de9e2e8b0f7be420e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1616,11 +1616,11 @@ MonoBehaviour:
   textMesh: {fileID: 0}
   rawTopLeftBounds: {x: 34.97, y: -24.795, z: 0}
   rawBottomRightBounds: {x: -34.97, y: 24.795, z: 0}
-  topLeftBounds: {x: -7.6120806, y: 1.193565, z: -1.2774985}
-  topRightBounds: {x: -7.1225004, y: 1.193565, z: -1.2774985}
-  bottomLeftBounds: {x: -7.6120806, y: 0.846435, z: -1.2774985}
-  bottomRightBounds: {x: -7.1225004, y: 0.846435, z: -1.2774985}
-  centerBounds: {x: -7.3672905, y: 1.02, z: -1.2774985}
+  topLeftBounds: {x: -8.34109, y: 1.193565, z: -2.5349543}
+  topRightBounds: {x: -7.8515105, y: 1.193565, z: -2.5349543}
+  bottomLeftBounds: {x: -8.34109, y: 0.846435, z: -2.5349543}
+  bottomRightBounds: {x: -7.8515105, y: 0.846435, z: -2.5349543}
+  centerBounds: {x: -8.0963, y: 1.02, z: -2.5349543}
   maxX: 48.68571
   minY: -6.9900017
   unwrappedMaxX: 48.68571
@@ -2085,7 +2085,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 68e8173513bc94dacac62b74a85f6886, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.4627451}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.1254902}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2130,7 +2130,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1e6543698e0384be5882ef0e6016b20d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 53fe78a544c4f1c4b8ce5a872f8c7c14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2311,7 +2311,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: -60.4}
-  m_SizeDelta: {x: 112, y: 112}
+  m_SizeDelta: {x: 73.187, y: 73.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224117885920645362
 RectTransform:
@@ -2329,7 +2329,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: -60.4}
-  m_SizeDelta: {x: 112, y: 112}
+  m_SizeDelta: {x: 71.418, y: 71.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224142583787121830
 RectTransform:
