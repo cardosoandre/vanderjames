@@ -12,22 +12,35 @@ namespace VDJ.BuilderGame.GameState
     {
         public static GameStateManager Instance { get; private set; }
 
-        public string sceneName;
+        public string battleSceneName;
+        public string menuSceneName;
 
         public PlayerConfig[] data;
 
         private void Awake()
         {
-            DontDestroyOnLoad(gameObject);
-            Instance = this;
+            if (Instance != null)
+            {
+                Destroy(this);
+            }
+            else
+            {
+                DontDestroyOnLoad(gameObject);
+                Instance = this;
+            }
         }
 
 
         public void GoToBattle(PlayerConfig[] data)
         {
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(battleSceneName);
 
             this.data = data;
+        }
+
+        public void GoToMenu()
+        {
+            SceneManager.LoadScene(menuSceneName);
         }
     }
 }

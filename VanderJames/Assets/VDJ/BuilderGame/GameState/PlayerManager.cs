@@ -58,6 +58,14 @@ namespace VDJ.BuilderGame.GameState
             player.Init(data);
             player.gameObject.SetActive(true);
         }
+
+        public void StopAllPlayers()
+        {
+            foreach (var player in players)
+            {
+                player.GoToInactive();
+            }
+        }
     }
 
 

@@ -25,7 +25,7 @@ namespace VDJ.BuilderGame.GameState
             public float resourceSpawnWait = 3.0f;
             public float spawnRange = .5f;
 
-
+            
             public GameObject stonePrefab;
             public GameObject woodPrefab;
         }
@@ -37,6 +37,10 @@ namespace VDJ.BuilderGame.GameState
         
         public List<Transform> spawningSpots;
 
+        private bool TimerStarted;
+        private float Timer;
+
+        public float score;
 
         private void Awake()
         {
@@ -53,6 +57,12 @@ namespace VDJ.BuilderGame.GameState
             StartCoroutine(GameCoroutine());
         }
 
+
+        public void Update()
+        {
+            Timer -= Time.deltaTime;
+        }
+
         private IEnumerator GameCoroutine()
         {
             Debug.Log("Spawned Players");
@@ -66,9 +76,31 @@ namespace VDJ.BuilderGame.GameState
 
             StartCoroutine(ActiavtePeriodicalBuildings());
             StartCoroutine(SpawnPeriodicalResources());
-            
+
+            StartTimer();
+
+            yield return new WaitUntil(TimerOver);
+
+
+            PlayerManager.Instance.StopAllPlayers();
+
+            GameUI.Instance.ShowResults(score);
+
+            yield return new WaitForSeconds(6);
+
+            GameStateManager.Instance.GoToMenu();
         }
 
+
+        private void StartTimer()
+        {
+            TimerStarted = true;
+            Timer = settings.totalTime;
+        }
+        private bool TimerOver()
+        {
+            return TimerStarted && Timer < 0;
+        }
 
         private IEnumerator SpawnPeriodicalResources()
         {
