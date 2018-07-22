@@ -24,6 +24,8 @@ public class DialogSystem : MonoBehaviour {
 
     public List<Character> characters;
 
+    public AudioClip[] audios;
+
     private void Awake()
     {
         Instance = this;
@@ -50,6 +52,10 @@ public class DialogSystem : MonoBehaviour {
     }
 
     public void Read(string reader, string line){
+
+        int randomNum = UnityEngine.Random.Range(0, audios.Length);
+
+        charLineText.audioClips[0] = audios[randomNum];
 
         ShowUI();
         CharLookup(reader, line);
