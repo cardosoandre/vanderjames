@@ -30,7 +30,7 @@ namespace VDJ.BuilderGame.Movement
             }
         }
 
-        public bool IsMainButtonPressed
+        public bool MainButtonDown
         {
             get
             {
@@ -38,7 +38,7 @@ namespace VDJ.BuilderGame.Movement
             }
         }
 
-        public bool IsMainButtonCurrentlyDown
+        public bool MainButton  
         {
             get
             {

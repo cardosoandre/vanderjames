@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using VDJ.BuilderGame.GameState;
 using VDJ.BuilderGame.Movement;
 using VDJ.BuilderGame.Objects;
 
@@ -16,6 +17,8 @@ namespace VDJ.BuilderGame
         public HandleFinder HandleFinder;
 
         public Transform HandleIndicator;
+
+        private PlayerConfig data;
 
         [Space]
         public MovementSettings MoveSettings;
@@ -66,8 +69,11 @@ namespace VDJ.BuilderGame
 
         private void Start()
         {
-            ToFreeMove();
-            GoToFreeState();
+            if (state == null)
+            {
+                ToFreeMove();
+                GoToFreeState();
+            }
             HandleFinder.TargetChanged += HandleFinder_TargetChanged;
         }
 
@@ -84,7 +90,21 @@ namespace VDJ.BuilderGame
         {
             movement.MoveFixedUpdate();
         }
+
         #endregion
+
+
+        public void Activate()
+        {
+            GoToFreeState();
+        }
+
+        public void GoToInactive()
+        {
+            SetState(new InactiveState(this));
+        }
+
+
 
         private void SetMovement(IMovement value)
         {
@@ -95,6 +115,12 @@ namespace VDJ.BuilderGame
 
             if (movement != null)
                 movement.Begin();
+        }
+
+        public void Init(PlayerConfig data)
+        {
+            this.data = data;
+            input.playerID = data.controllerIndex;
         }
 
         private void SetState(State value)
@@ -131,6 +157,10 @@ namespace VDJ.BuilderGame
 
 
         private void ToNoMove()
+        {
+            SetMovement(new NoMovement(rb));
+        }
+        private void ToNoMovement()
         {
             SetMovement(new NoMovement(rb));
         }
@@ -180,6 +210,26 @@ namespace VDJ.BuilderGame
             }
         }
 
+        private class InactiveState : State
+        {
+            public InactiveState(PlayerController owner) : base(owner)
+            {
+            }
+
+            public override void Begin()
+            {
+                owner.ToNoMovement();
+            }
+
+            public override void Leave()
+            {
+            }
+
+            public override void Update()
+            {
+            }
+        }
+
         private class FreeState : State
         {
             public FreeState(PlayerController owner) :base(owner)
@@ -198,7 +248,7 @@ namespace VDJ.BuilderGame
 
             public override void Update()
             {
-                if(owner.input.IsMainButtonCurrentlyDown && owner.HandleFinder.Target != null)
+                if(owner.input.MainButton && owner.HandleFinder.Target != null)
                 {
                     TryGrab(owner.HandleFinder.Target);
                 }
@@ -248,7 +298,7 @@ namespace VDJ.BuilderGame
 
             public override void Update()
             {
-                if(!owner.input.IsMainButtonCurrentlyDown)
+                if(!owner.input.MainButton)
                 {
                     owner.GoToFreeState();
                 }

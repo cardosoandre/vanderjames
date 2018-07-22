@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
+using UnityEngine.Events;
+using VDJ.BuilderGame.GameState;
+using System.Linq;
 
 namespace VDJ.BuilderGame {
 	public class PlayeDropInDetection : MonoBehaviour {
@@ -9,15 +12,21 @@ namespace VDJ.BuilderGame {
 		public int numberOfPlayers;
 		public int[] playerStatus;
 
-		private Player[] players;
+
+        public PlayerConfig[] playerConfigs;
+
+        private Player[] players;
 		private ControllerDetection ctlrDetection;
+
+        private bool TriggeredReady = false;
+
 
 		void Awake() {
 			ctlrDetection = new ControllerDetection();
 			ctlrDetection.connectionDelegate = IncreasePlayerCount;
 			ctlrDetection.disconnectionDelegate = DecreasePlayerCount;
+            
 
-			numberOfPlayers = 0;
 			playerStatus = new int[4];
 			players = new Player[4];
 
@@ -50,8 +59,13 @@ namespace VDJ.BuilderGame {
 			}
 
 			if (allOk == true && numberOfPlayers > 0) {
-				//initialize game with
-				print("GAME IS READY TO BEGIN!!!!");
+				if(!TriggeredReady)
+                {
+                    GameStateManager.Instance.GoToBattle(playerConfigs.Take(numberOfPlayers).ToArray());
+                    //initialize game with
+                    print("GAME IS READY TO BEGIN!!!!");
+                    
+                }
 			}
 		}
 		

@@ -14,11 +14,17 @@ namespace VDJ.BuilderGame.Resources
         public ResourceTokenFinder finder;
 
         public UnityEvent CostMet;
+        public UnityEvent ValueChanged;
 
 
         private void Awake()
         {
             finder.OnNewObject += Finder_ObjectEntered;
+        }
+
+        private void Start()
+        {
+            ValueChanged.Invoke();
         }
 
         private void Finder_ObjectEntered(ResourceToken token)
@@ -33,7 +39,9 @@ namespace VDJ.BuilderGame.Resources
 
         private void OnTokenConsumed()
         {
-            if(cost.IsMet)
+            ValueChanged.Invoke();
+
+            if (cost.IsMet)
             {
                 OnCostMet();
             }
@@ -42,6 +50,15 @@ namespace VDJ.BuilderGame.Resources
         private void OnCostMet()
         {
             CostMet.Invoke();
+        }
+        
+
+        public IEnumerable<ResourceCost.Requirement> CurrentRequirements
+        {
+            get
+            {
+                return cost.CurrentRequirements;
+            }
         }
     }
 }

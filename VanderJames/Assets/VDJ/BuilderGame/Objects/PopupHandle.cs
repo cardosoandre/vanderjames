@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace VDJ.BuilderGame.Objects
 {
@@ -11,6 +12,8 @@ namespace VDJ.BuilderGame.Objects
         {
             public float pullTime = 1.0f;
             public float backTime = .5f;
+
+            public bool DoesLock = true;
         }
 
         //Dependencies
@@ -28,9 +31,12 @@ namespace VDJ.BuilderGame.Objects
         private float pull = 0.0f;
 
         private IPullProvider pullProvider;
+        private bool isLocked = false;
 
         public override bool CanBeGrabbed { get { return !grabbed; } }
         public override Transform Anchor { get { return anchor.transform; } }
+
+        public UnityEvent Locked;
 
         public override void OnGrab(IPullProvider pullProvider)
         {
@@ -46,8 +52,23 @@ namespace VDJ.BuilderGame.Objects
 
         private void Update()
         {
-            ProcessMovement();
-            UpdatePopups();
+            if (!isLocked)
+            {
+                ProcessMovement();
+                UpdatePopups();
+
+
+                if (settings.DoesLock && pull >= 1.0f)
+                {
+                    Lock () ;
+                }
+            }
+        }
+
+        private void Lock()
+        {
+            isLocked = true;
+            Locked.Invoke();
         }
 
 

@@ -65,5 +65,28 @@ namespace VDJ.BuilderGame.Resources
             consumedResources.TryGetValue(type, out value);
             return value;
         }
+
+        
+        public IEnumerable<Requirement> CurrentRequirements
+        {
+            get
+            {
+                var list = new List<Requirement>();
+
+                foreach (var item in requirements)
+                {
+                    var req = new Requirement()
+                    {
+                        type = item.type,
+                        quantity = (RequiredCount(item.type) - CurrentCount(item.type))
+                    };
+
+                    //if (req.quantity > 0)
+                    list.Add(req);
+
+                }
+                return list.AsEnumerable();
+            }
+        }
     }
 }

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: MoveSettings
   m_EditorClassIdentifier: 
   normalMovementSettings:
-    moveForce: 20
-    brakeForce: 60
-    speedCap: 5
-    speedCapFrictionPower: 22
+    moveForce: 10
+    brakeForce: 40
+    speedCap: 2
+    speedCapFrictionPower: 12
   anchorSettings:
     dampSmoothTime: 0.1
