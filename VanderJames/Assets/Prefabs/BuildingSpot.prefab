@@ -308,7 +308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1540928597041544
 GameObject:
   m_ObjectHideFlags: 1
@@ -463,14 +463,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1377908019736514}
-  m_LocalRotation: {x: 0.70090926, y: -0, z: -0, w: 0.71325046}
+  m_LocalRotation: {x: 0.121870495, y: 0.0000044761146, z: 0.000004554927, w: 0.9925461}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4454109552695496}
   m_Father: {fileID: 4525424517890774}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 89, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 14.000001, y: 0.001, z: 0.001}
 --- !u!4 &4139116442688704
 Transform:
   m_ObjectHideFlags: 1
@@ -576,8 +576,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174150874665366}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000026822088}
-  m_LocalPosition: {x: -0.58, y: 0, z: 2.94}
-  m_LocalScale: {x: 1.2498595, y: 1, z: 1}
+  m_LocalPosition: {x: -3.1, y: 0, z: 1.8}
+  m_LocalScale: {x: 1.911785, y: 1.5296, z: 1.5296}
   m_Children:
   - {fileID: 4831716472327990}
   - {fileID: 4525424517890774}
@@ -798,8 +798,8 @@ MonoBehaviour:
     name: Predio
     score: 10
     hasText: 1
-    lineCharacter: '@nassau'
-    lineText: "Esse pr\xE9dio ser\xE1 muito \xFAtil!"
+    lineCharacter: '@nasssau'
+    lineText: "Este pr\xE9dio vai ser muito \xFAtil"
 --- !u!114 &114054479228697834
 MonoBehaviour:
   m_ObjectHideFlags: 1
