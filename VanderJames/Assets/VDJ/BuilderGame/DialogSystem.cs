@@ -18,7 +18,7 @@ public class DialogSystem : MonoBehaviour {
 
     private void Start()
     {
-        Read("@shama",lines[0]);
+        Read("@jorge",lines[0]);
     }
 
     private void Update()
@@ -27,7 +27,7 @@ public class DialogSystem : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.S))
         {
             count++;
-            Read("@berger",lines[count]);
+            Read("@post",lines[count]);
         }
 
         if (Input.GetKeyDown(KeyCode.R))
