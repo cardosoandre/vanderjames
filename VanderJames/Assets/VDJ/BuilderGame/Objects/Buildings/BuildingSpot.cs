@@ -21,6 +21,7 @@ namespace VDJ.BuilderGame.Objects.Buildings
             public bool hasText;
             public string lineCharacter;
             public string lineText;
+            public Color lineColor;
         }
 
 
@@ -28,12 +29,14 @@ namespace VDJ.BuilderGame.Objects.Buildings
         public ResourceDeliveryPoint deliveryPoint;
 
         public Transform hiddenPortion;
+        public Transform lookPos;
 
         public UnityEvent Activated;
         public UnityEvent Built;
 
         public Settings settings;
 
+        public LineRenderer lr;
 
         public void Activate()
         {
@@ -48,6 +51,8 @@ namespace VDJ.BuilderGame.Objects.Buildings
         {
             sr.sprite = settings.sprite;
             deliveryPoint.cost = settings.cost;
+            lr.startColor = settings.lineColor;
+            lr.endColor = settings.lineColor;
         }
 
         public void OnBuilt()
@@ -55,7 +60,7 @@ namespace VDJ.BuilderGame.Objects.Buildings
             StageManager.Instance.score += settings.score;
             Built.Invoke();
             
-            CameraHighlight.instance.LookAtTarget(transform, settings.name);
+            CameraHighlight.instance.LookAtTarget(lookPos, settings.name);
             if (settings.hasText)
                 DialogSystem.Instance.Read(settings.lineCharacter, settings.lineText);
         }

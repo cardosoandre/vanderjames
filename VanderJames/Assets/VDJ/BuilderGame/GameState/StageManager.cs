@@ -13,6 +13,9 @@ namespace VDJ.BuilderGame.GameState
     public class StageManager : MonoBehaviour
     {
         public static StageManager Instance { get; private set; }
+        public float RemainingTime { get { return Timer; } }
+        public bool TimerStarted { get { return timerStarted; } }
+
         [Serializable]
         public class Settings
         {
@@ -35,9 +38,14 @@ namespace VDJ.BuilderGame.GameState
         public List<BuildingSpot> buildingSpots;
 
         
-        public List<Transform> spawningSpots;
+        //public List<Transform> spawningSpots;
 
-        private bool TimerStarted;
+
+        public List<Transform> stoneSpawns;
+
+        public List<Transform> woodSpawns;
+
+        private bool timerStarted;
         private float Timer;
 
         public float score;
@@ -94,12 +102,12 @@ namespace VDJ.BuilderGame.GameState
 
         private void StartTimer()
         {
-            TimerStarted = true;
+            timerStarted = true;
             Timer = settings.totalTime;
         }
         private bool TimerOver()
         {
-            return TimerStarted && Timer < 0;
+            return timerStarted && Timer < 0;
         }
 
         private IEnumerator SpawnPeriodicalResources()
@@ -113,22 +121,24 @@ namespace VDJ.BuilderGame.GameState
             }
         }
 
-        private void SpawnResources(int spawnsPerType)
+        private void SpawnResources(int count)
         {
-            var randomSort = spawningSpots.OrderBy(x => UnityEngine.Random.value).Take(spawnsPerType * 2).ToArray();
+            SpawnResources(stoneSpawns, settings.stonePrefab, count);
+
+            SpawnResources(woodSpawns, settings.woodPrefab, count);
+        }
+
+        private void SpawnResources(List<Transform> spots, GameObject prefab, int count)
+        {
+            var randomSort = spots.OrderBy(x => UnityEngine.Random.value).Take(count).ToArray();
 
             for (int i = 0; i < randomSort.Length; i++)
             {
                 var circle = UnityEngine.Random.insideUnitCircle;
                 
                 var spawnPoint = randomSort[i].transform.position + new Vector3(circle.x, 0, circle.y) * settings.spawnRange;
-                if (i%2 == 0)
-                {
-                    Spawn(settings.stonePrefab, spawnPoint);
-                }else
-                {
-                    Spawn(settings.woodPrefab, spawnPoint);
-                }
+                
+                Spawn(prefab, spawnPoint);
             }
 
         }

@@ -68,7 +68,8 @@ namespace VDJ.BuilderGame
         //}
 
 
-        public void Release() {
+        public void Release(Vector3 offset) {
+            transform.position += offset;
             GoToFreeState();
         }
 
