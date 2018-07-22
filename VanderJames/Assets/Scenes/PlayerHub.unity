@@ -373,6 +373,7 @@ MonoBehaviour:
   playerConfigs:
   - controllerIndex: 0
   - controllerIndex: 1
+  - controllerIndex: 2
   numberOfJointPlayers: 0
   jointPlayers: 000000
   countDownText: {fileID: 905809880}

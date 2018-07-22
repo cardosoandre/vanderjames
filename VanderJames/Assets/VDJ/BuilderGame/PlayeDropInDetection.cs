@@ -41,11 +41,12 @@ namespace VDJ.BuilderGame {
                     if (jointPlayers[i]) {
                         StartCoroutine(StartGame());
                     }
+                    else {
+                        jointPlayers[i] = true;
+                        ++numberOfJointPlayers;
 
-                    jointPlayers[i] = true;
-                    ++numberOfJointPlayers;
-
-                    canvasStatusText[i].GetComponent<Text>().text = "Jogador " + i + " pronto!";
+                        canvasStatusText[i].GetComponent<Text>().text = "Jogador " + (i + 1) + " pronto!";   
+                    }
                 }
 			}
 
@@ -55,11 +56,6 @@ namespace VDJ.BuilderGame {
 		}
 		
         IEnumerator StartGame() {
-            countDownText.GetComponent<Text>().text = "Iniciando em 3";
-            yield return new WaitForSeconds(1);
-            countDownText.GetComponent<Text>().text = "Iniciando em 2";
-            yield return new WaitForSeconds(1);
-            countDownText.GetComponent<Text>().text = "Iniciando em 1";
             yield return new WaitForSeconds(1);
             GameStateManager.Instance.GoToBattle(playerConfigs.Take(numberOfJointPlayers).ToArray());
         }
