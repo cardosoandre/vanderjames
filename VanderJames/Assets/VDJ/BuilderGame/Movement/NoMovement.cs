@@ -17,12 +17,12 @@ namespace VDJ.BuilderGame.Movement
 
         public void Begin()
         {
-            rb.velocity = Vector3.zero;
+            rb.velocity = Vector3.zero; 
         }
 
         public void Leave()
         {
-            
+            //Intentionally left blank
         }
 
         public void MoveFixedUpdate()
@@ -32,12 +32,12 @@ namespace VDJ.BuilderGame.Movement
 
         public void MoveLateUpdate()
         {
-            
+            //Intentionally left blank
         }
 
         public void MoveUpdate()
         {
-            
+            //Intentionally left blank
         }
     }
 }

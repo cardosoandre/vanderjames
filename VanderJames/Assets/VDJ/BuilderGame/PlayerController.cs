@@ -6,25 +6,75 @@ using UnityEngine;
 using VDJ.BuilderGame.GameState;
 using VDJ.BuilderGame.Movement;
 using VDJ.BuilderGame.Objects;
+using VDJ.Utils;
 
 namespace VDJ.BuilderGame
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, ICargo
     {
         public PlayerInput input;
         public FreeMovement playerMovement;
         public Rigidbody rb;
         public HandleFinder HandleFinder;
+
         public Transform HandleIndicator;
 
         private PlayerConfig data;
 
+        public Collider col;
+
         [Space]
-        public MovementSettings settings;
+        public MovementSettings MoveSettings;
+        public Settings settings;
+
+        [Serializable]
+        public class Settings
+        {
+            public float respawnTime = 2.0f;
+        }
 
 
         State state;
         IMovement movement;
+
+
+
+        #region Events
+        public void OnFell(WaterHazard waterHazard, Vector3 respawnPoint)
+        {
+            state.OnTouchedWater(respawnPoint);
+        }
+
+        
+
+        public ICargo GetCargo()
+        {
+            return state.GetCargo();
+        }
+
+
+        public bool CanGetIntoBoat()
+        {
+            return state.CanGetIntoBoat();
+        }
+
+        public void GetIntoBoat(BoatMachineState boatMachineState)
+        {
+            GoToOnBoatState(boatMachineState);
+        }
+
+        //public void OnLeftBoatTouch(BoatPlayerCrossing boatPlayerCrossing)
+        //{
+
+        //}
+
+
+        public void Release() {
+            GoToFreeState();
+        }
+
+        #endregion  
+
 
         #region Unity Messages
 
@@ -97,8 +147,6 @@ namespace VDJ.BuilderGame
         }
 
 
-
-
         private void HandleFinder_TargetChanged(Utils.TargetChangeEventData<Handle> ev)
         {
             HandleIndicator.gameObject.SetActive(ev.NewTarget != null);
@@ -108,12 +156,18 @@ namespace VDJ.BuilderGame
         #region Movement Changes
         private void ToFreeMove()
         {
-            SetMovement(new FreeMovement(input, settings.normalMovementSettings, rb));
+            SetMovement(new FreeMovement(input, MoveSettings.normalMovementSettings, rb));
         }
 
         private void ToAnchor(Transform anchor)
         {
-            SetMovement(new AnchoredMovement(anchor, rb, settings.anchorSettings));
+            SetMovement(new AnchoredMovement(anchor, rb, MoveSettings.anchorSettings));
+        }
+
+
+        private void ToNoMove()
+        {
+            SetMovement(new NoMovement(rb));
         }
         private void ToNoMovement()
         {
@@ -132,6 +186,19 @@ namespace VDJ.BuilderGame
         {
             SetState(new FreeState(this));
         }
+
+        private void GoToRespawnState(Vector3 target)
+        {
+            SetState(new RespawnState(target, settings.respawnTime, this));
+        }
+
+
+
+        private void GoToOnBoatState(BoatMachineState boatMachineState)
+        {
+            SetState(new OnBoatState(this, boatMachineState));
+        }
+
         #endregion
 
         #region States
@@ -148,6 +215,22 @@ namespace VDJ.BuilderGame
 
             public abstract void Begin();
             public abstract void Leave();
+            
+
+            public virtual ICargo GetCargo()
+            {
+                return owner;
+            }
+
+            public virtual bool CanGetIntoBoat()
+            {
+                return true;
+            }
+
+            public virtual void OnTouchedWater(Vector3 respawnPoint)
+            {
+                owner.GoToRespawnState(respawnPoint);
+            }
         }
 
         private class InactiveState : State
@@ -167,6 +250,10 @@ namespace VDJ.BuilderGame
 
             public override void Update()
             {
+            }
+            public override bool CanGetIntoBoat()
+            {
+                return false;
             }
         }
 
@@ -199,6 +286,7 @@ namespace VDJ.BuilderGame
                 if (target.CanBeGrabbed)
                     owner.GrabHandle(target);
             }
+            
         }
 
 
@@ -233,6 +321,7 @@ namespace VDJ.BuilderGame
             public override void Leave()
             {
                 handle.OnLeave();
+                owner.col.enabled = true;
             }
 
             public override void Update()
@@ -242,7 +331,76 @@ namespace VDJ.BuilderGame
                     owner.GoToFreeState();
                 }
             }
+
+            public override ICargo GetCargo()
+            {
+                return handle as ICargo;
+            }
         }
+
+
+        private class RespawnState : State
+        {
+            private float remainingTime;
+
+            private Vector3 spawnTarget;
+
+            public RespawnState(Vector3 spawnTarget, float duration, PlayerController owner) : base(owner)
+            {
+                this.spawnTarget = spawnTarget;
+                this.remainingTime = duration;
+            }
+
+            public override void Begin()
+            {
+                owner.ToNoMove();
+            }
+
+            public override void Leave()
+            {
+            }
+
+            public override void Update()
+            {
+                remainingTime -= Time.deltaTime;
+                if(remainingTime <= 0)
+                {
+                    owner.transform.position = spawnTarget;
+                    owner.GoToFreeState();
+                }
+            }
+        }
+
+        private class OnBoatState : State
+        {
+            private BoatMachineState boat;
+
+            public OnBoatState(PlayerController owner, BoatMachineState boat):base(owner)
+            {
+                this.boat = boat;
+            }
+
+            public override void Begin()
+            {
+                print("began onBoatState");
+                owner.ToAnchor(boat.Anchor);
+            }
+
+            public override void Leave()
+            {
+                
+            }
+
+            public override void Update()
+            {
+            }
+            public override void OnTouchedWater(Vector3 respawnPoint)
+            {
+                Debug.Log("I don't even care");
+                owner.StartCoroutine(CoroutineUtils.WaitThenDo(() => Debug.Log("I Love it"), 1.0f));
+            }
+        }
+        
         #endregion
     }
 }
