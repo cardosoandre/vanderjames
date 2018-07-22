@@ -37,15 +37,19 @@ namespace VDJ.BuilderGame.Objects
         public override Transform Anchor { get { return anchor.transform; } }
 
         public UnityEvent Locked;
+        public UnityEvent Grabbed;
+        public UnityEvent Released;
 
         public override void OnGrab(IPullProvider pullProvider)
         {
             this.pullProvider = pullProvider;
             grabbed = true;
+            Grabbed.Invoke();
         }
         public override void OnLeave()
         {
             grabbed = false;
+            Released.Invoke();
         }
 
         #region Unity Messages
