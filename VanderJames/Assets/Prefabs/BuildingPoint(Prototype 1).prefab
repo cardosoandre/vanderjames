@@ -175,7 +175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4357011811832242}
   m_Layer: 0
-  m_Name: BuildingPoint
+  m_Name: BuildingPoint(Prototype 1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -873,6 +873,12 @@ MonoBehaviour:
   settings:
     pullTime: 3
     backTime: 0.5
+    DoesLock: 1
+  Locked:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114279965441347738
 MonoBehaviour:
   m_ObjectHideFlags: 1
