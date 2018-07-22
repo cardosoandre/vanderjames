@@ -148,7 +148,6 @@ namespace VDJ.BuilderGame.Objects
             {
                 movement.FixedMove();
             }
-            Debug.Log(rb.velocity.magnitude);
         }
 
         private void UpdateGrabbed()
@@ -188,10 +187,11 @@ namespace VDJ.BuilderGame.Objects
             anchor.position = transform.position + delta;
         }
 
-        public void Release()
+        public void Release(Vector3 offset)
         {
 
             anchored.Leave();
+            transform.position += offset;
             state = State.Free;
         }
 

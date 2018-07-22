@@ -94,7 +94,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1174150874665366
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1452307383716298
 GameObject:
   m_ObjectHideFlags: 1
@@ -304,6 +304,21 @@ GameObject:
   - component: {fileID: 4525424517890774}
   m_Layer: 0
   m_Name: ActivatablePortion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!1 &1511234269827168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4047900645541748}
+  m_Layer: 0
+  m_Name: LookPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -428,6 +443,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4047900645541748
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511234269827168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.79, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4664159502846824}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4053941205166390
 Transform:
   m_ObjectHideFlags: 1
@@ -576,11 +604,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174150874665366}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000026822088}
-  m_LocalPosition: {x: 1.16, y: 0, z: 1.79}
+  m_LocalPosition: {x: -5.62559, y: 7.538949e-18, z: -1.0004792}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4831716472327990}
   - {fileID: 4525424517890774}
+  - {fileID: 4047900645541748}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
@@ -766,6 +795,7 @@ MonoBehaviour:
   sr: {fileID: 212214290350393118}
   deliveryPoint: {fileID: 114547281456092082}
   hiddenPortion: {fileID: 4525424517890774}
+  lookPos: {fileID: 4047900645541748}
   Activated:
     m_PersistentCalls:
       m_Calls: []
@@ -794,7 +824,7 @@ MonoBehaviour:
         quantity: 2
       - type: 1
         quantity: 1
-    sprite: {fileID: 21300000, guid: 447fef3c7b15b4d54af5a111dab4d4b8, type: 3}
+    sprite: {fileID: 21300000, guid: 1e6543698e0384be5882ef0e6016b20d, type: 3}
     name: Predio
     score: 10
     hasText: 1
@@ -1865,7 +1895,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 447fef3c7b15b4d54af5a111dab4d4b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e6543698e0384be5882ef0e6016b20d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

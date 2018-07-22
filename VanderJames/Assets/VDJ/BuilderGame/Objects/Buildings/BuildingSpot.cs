@@ -28,6 +28,7 @@ namespace VDJ.BuilderGame.Objects.Buildings
         public ResourceDeliveryPoint deliveryPoint;
 
         public Transform hiddenPortion;
+        public Transform lookPos;
 
         public UnityEvent Activated;
         public UnityEvent Built;
@@ -55,7 +56,7 @@ namespace VDJ.BuilderGame.Objects.Buildings
             StageManager.Instance.score += settings.score;
             Built.Invoke();
             
-            CameraHighlight.instance.LookAtTarget(transform, settings.name);
+            CameraHighlight.instance.LookAtTarget(lookPos, settings.name);
             if (settings.hasText)
                 DialogSystem.Instance.Read(settings.lineCharacter, settings.lineText);
         }

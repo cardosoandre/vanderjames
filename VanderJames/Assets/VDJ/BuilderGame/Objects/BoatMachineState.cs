@@ -21,6 +21,7 @@ namespace VDJ.BuilderGame {
         public Direction direction = Direction.Right;
         public float waitTime = 2.0f;
         public float cargoShieldTime = 1.0f;
+        public float leaveOffset = 2.0f;
 
         private ICargo myCargo;
 
@@ -164,10 +165,17 @@ namespace VDJ.BuilderGame {
         {
             if (myCargo != null)
             {
-                myCargo.Release();
+                var delta = DirectionVector();
+                myCargo.Release(delta * leaveOffset);
                 myCargo = null;
             }
         }
+
+        private Vector3 DirectionVector()
+        {
+            return direction == Direction.Right ? Vector3.right : Vector3.left;
+        }
+
         private bool HasCargo
         {
             get

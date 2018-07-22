@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace VDJ.BuilderGame {
 	public interface ICargo {
-		void Release();
         bool CanGetIntoBoat();
         void GetIntoBoat(BoatMachineState boatMachineState);
+        void Release(Vector3 vector3);
     }
 }
 
