@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Events;
 using VDJ.BuilderGame.Movement;
 using VDJ.Utils;
 
@@ -59,6 +60,9 @@ namespace VDJ.BuilderGame.Objects
 
         private FreeMovement movement;
 
+        public UnityEvent Grabbed;
+        public UnityEvent Released;
+
         //State
         private bool grabbed = false;
         private IPullProvider pullProvider;
@@ -82,11 +86,15 @@ namespace VDJ.BuilderGame.Objects
             grabbed = true;
             this.pullProvider = pullProvider;
             delta = Vector3.zero;
+
+            Grabbed.Invoke();
         }
 
         public override void OnLeave()
         {
             grabbed = false;
+
+            Released.Invoke();
         }
 
         public void ForceLeave()

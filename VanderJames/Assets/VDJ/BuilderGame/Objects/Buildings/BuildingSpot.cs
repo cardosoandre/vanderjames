@@ -18,6 +18,9 @@ namespace VDJ.BuilderGame.Objects.Buildings
             public Sprite sprite;
             public string name;
             public int score;
+            public bool hasText;
+            public string lineCharacter;
+            public string lineText;
         }
 
 
@@ -53,6 +56,8 @@ namespace VDJ.BuilderGame.Objects.Buildings
             Built.Invoke();
             
             CameraHighlight.instance.LookAtTarget(transform, settings.name);
+            if (settings.hasText)
+                DialogSystem.Instance.Read(settings.lineCharacter, settings.lineText);
         }
     }
 }

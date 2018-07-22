@@ -6,6 +6,8 @@ using DG.Tweening;
 using UnityEngine.SceneManagement;
 
 public class DialogSystem : MonoBehaviour {
+    public static DialogSystem Instance { get; private set; }
+
 
     public Image charImage;
     public SuperTextMesh charNameText;
@@ -16,24 +18,29 @@ public class DialogSystem : MonoBehaviour {
 
     public List<Character> characters;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
-        Read("@jorge",lines[0]);
+        //Read("@jorge",lines[0]);
     }
 
     private void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            count++;
-            Read("@post",lines[count]);
-        }
+        //if (Input.GetKeyDown(KeyCode.S))
+        //{
+        //    count++;
+        //    Read("@post",lines[count]);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
-        }
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        //}
     }
 
     public void Read(string reader, string line){

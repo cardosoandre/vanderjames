@@ -89,6 +89,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1702889249701194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4866023426298170}
+  - component: {fileID: 135353567340711514}
+  m_Layer: 9
+  m_Name: Col
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1740322629351726
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +194,7 @@ Transform:
   m_Children:
   - {fileID: 4676188412840158}
   m_Father: {fileID: 4567427852718746}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 89, y: 0, z: 0}
 --- !u!4 &4426775434408652
 Transform:
@@ -194,7 +210,7 @@ Transform:
   - {fileID: 4243063177413130}
   - {fileID: 4169555481961200}
   m_Father: {fileID: 4567427852718746}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4536827870419978
 Transform:
@@ -217,9 +233,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1740322629351726}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.44, y: 0, z: -3.24}
+  m_LocalPosition: {x: -3.8683908, y: 4.85601e-17, z: 2.1869578}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4866023426298170}
   - {fileID: 4369619566878302}
   - {fileID: 4426775434408652}
   m_Father: {fileID: 0}
@@ -249,6 +266,19 @@ Transform:
   m_LocalScale: {x: 0.21231182, y: 0.21231182, z: 0.21231182}
   m_Children: []
   m_Father: {fileID: 4536827870419978}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4866023426298170
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1702889249701194}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.107, z: 0}
+  m_LocalScale: {x: 0.30295, y: 0.30295, z: 0.30295}
+  m_Children: []
+  m_Father: {fileID: 4567427852718746}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23434602750401096
@@ -321,8 +351,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchor: {fileID: 4426775434408652}
   settings:
-    speed: 5
-    gravity: 5
+    speed: 3
+    gravity: 3
     radius: 0.5
     pullForce: 20
   rb: {fileID: 54303330501136606}
@@ -331,6 +361,38 @@ MonoBehaviour:
     brakeForce: 20
     speedCap: 3
     speedCapFrictionPower: 12
+  Grabbed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1702889249701194}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  Released:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1702889249701194}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114622479975934732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -424,6 +486,18 @@ SphereCollider:
   m_GameObject: {fileID: 1266452749896672}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &135353567340711514
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1702889249701194}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
