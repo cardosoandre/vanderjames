@@ -61,15 +61,15 @@ namespace VDJ.BuilderGame {
                 {
                     case -1:
                         textScript = canvasStatusText[i].GetComponent<Text>();
-                        textScript.text = "";
+                        textScript.text = "Conecte um controle!";
                         break;
                     case 0:
                         textScript = canvasStatusText[i].GetComponent<Text>();
-                        textScript.text = "Player " + i + " NOT ready";
+                        textScript.text = "Aperte X";
                         break;
                     case 1:
                         textScript = canvasStatusText[i].GetComponent<Text>();
-                        textScript.text = "Player " + i + " ready";
+                        textScript.text = "Player " + (i+1) + " pronto";
                         break;
                 }
 			}
@@ -81,7 +81,11 @@ namespace VDJ.BuilderGame {
 		
         IEnumerator StartGame() {
             countDownText.GetComponent<Text>().text = "Iniciando em 3";
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(1);
+            countDownText.GetComponent<Text>().text = "Iniciando em 2";
+            yield return new WaitForSeconds(1);
+            countDownText.GetComponent<Text>().text = "Iniciando em 1";
+            yield return new WaitForSeconds(1);
             GameStateManager.Instance.GoToBattle(playerConfigs.Take(numberOfPlayers).ToArray());
         }
 
