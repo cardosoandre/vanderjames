@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4357011811832242}
   m_Layer: 0
-  m_Name: BuildingPoint
+  m_Name: BuildingPoint(Prototype 1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -292,7 +292,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1434884964884680}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.85, y: 0, z: -0.01}
+  m_LocalPosition: {x: 3.11, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4471032726754048}
@@ -976,7 +976,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 82871cbf6074bd54dbdc90d900ec037e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a0b8907fb73f94577ab3381bb455a8c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
