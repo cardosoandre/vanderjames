@@ -31,7 +31,7 @@ public class DialogSystem : MonoBehaviour {
 
     private void Start()
     {
-        //Read("@jorge",lines[0]);
+        Read("@nassau",lines[0]);
     }
 
     private void Update()

@@ -622,7 +622,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174150874665366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5862877, y: 1.3991232, z: -7.0393558}
+  m_LocalPosition: {x: 0.12543643, y: 0.5, z: 1.0411365}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4964829468042694}
@@ -858,6 +858,28 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1948921558832846}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1052370830209924}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1540928597041544}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -1138,6 +1160,7 @@ MonoBehaviour:
   transforms:
   - {fileID: 4664159502846824}
   - {fileID: 4173103799363636}
+  offset: {x: 0, y: 0.2, z: 0}
   lr: {fileID: 120671150003276966}
 --- !u!114 &114547281456092082
 MonoBehaviour:
