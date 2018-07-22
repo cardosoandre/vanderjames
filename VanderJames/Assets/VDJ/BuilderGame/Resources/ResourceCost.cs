@@ -81,8 +81,9 @@ namespace VDJ.BuilderGame.Resources
                         quantity = (RequiredCount(item.type) - CurrentCount(item.type))
                     };
 
-                    if (item.quantity > 0)
+                    if (req.quantity > 0)
                         list.Add(req);
+
                 }
                 return list.AsEnumerable();
             }

@@ -22,6 +22,11 @@ namespace VDJ.BuilderGame.Resources
             finder.OnNewObject += Finder_ObjectEntered;
         }
 
+        private void Start()
+        {
+            ValueChanged.Invoke();
+        }
+
         private void Finder_ObjectEntered(ResourceToken token)
         {
             if(cost.Accepts(token.ResourceType))
@@ -34,16 +39,25 @@ namespace VDJ.BuilderGame.Resources
 
         private void OnTokenConsumed()
         {
-            if(cost.IsMet)
+            ValueChanged.Invoke();
+
+            if (cost.IsMet)
             {
                 OnCostMet();
-                ValueChanged.Invoke();
             }
         }
 
         private void OnCostMet()
         {
             CostMet.Invoke();
+        }
+
+        public IEnumerable<ResourceCost.Requirement> CurrentRequirements
+        {
+            get
+            {
+                return cost.CurrentRequirements;
+            }
         }
     }
 }
