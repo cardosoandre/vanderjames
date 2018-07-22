@@ -30,7 +30,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1646130944719772
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,6 +177,7 @@ MonoBehaviour:
   rb: {fileID: 54121211279111018}
   HandleFinder: {fileID: 114646693419281108}
   HandleIndicator: {fileID: 4228616470852072}
+  col: {fileID: 0}
   MoveSettings: {fileID: 11400000, guid: 227a2ddcefa88644282ca33bf09b30fe, type: 2}
   settings:
     respawnTime: 2
