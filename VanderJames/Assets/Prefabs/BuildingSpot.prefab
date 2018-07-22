@@ -94,7 +94,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1174150874665366
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1452307383716298
 GameObject:
   m_ObjectHideFlags: 1
@@ -308,7 +308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1511234269827168
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,6 +350,7 @@ GameObject:
   - component: {fileID: 4229175118592992}
   - component: {fileID: 114006707023416606}
   - component: {fileID: 65850418243260268}
+  - component: {fileID: 135084562995694426}
   m_Layer: 0
   m_Name: PopupPullable
   m_TagString: Untagged
@@ -441,7 +442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1960486755658220
 GameObject:
   m_ObjectHideFlags: 1
@@ -480,7 +481,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1371261480716164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.00000012516875, y: 0, z: -0.5100002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4139116442688704}
@@ -508,14 +509,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1377908019736514}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7193398, y: 0, z: 0, w: 0.6946584}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4454109552695496}
   m_Father: {fileID: 4525424517890774}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 92, y: 0, z: 0}
 --- !u!4 &4139116442688704
 Transform:
   m_ObjectHideFlags: 1
@@ -536,7 +537,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1501970446544280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.08}
+  m_LocalPosition: {x: 0, y: 0, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4615747449958966}
@@ -620,8 +621,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174150874665366}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000026822088}
-  m_LocalPosition: {x: 2.8221176, y: -6.799099e-17, z: 1.7220417}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.1295753, y: -7.1183325e-17, z: 1.865812}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4964829468042694}
@@ -630,7 +631,7 @@ Transform:
   - {fileID: 4047900645541748}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4831716472327990
 Transform:
   m_ObjectHideFlags: 1
@@ -638,7 +639,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1052370830209924}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0.44000006}
+  m_LocalPosition: {x: 0, y: 0.1, z: -0.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4664159502846824}
@@ -650,7 +651,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1813679243576176}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -665,7 +666,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1540928597041544}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0.44}
+  m_LocalPosition: {x: 0.00000012516875, y: 0.1, z: -0.07000023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4525424517890774}
@@ -1086,11 +1087,11 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   start:
-    Position: {x: 0, y: 0, z: 0}
+    Position: {x: -0.25, y: 0, z: -1}
     Rotation: {x: 0, y: 0, z: 0, w: 1}
     Scale: {x: 1, y: 1, z: 1}
   end:
-    Position: {x: 0, y: 0, z: -1.08}
+    Position: {x: -0.5, y: 0, z: -1.5}
     Rotation: {x: 0, y: 0, z: 0, w: 1}
     Scale: {x: 1, y: 1, z: 1}
   progress: 0
@@ -1189,6 +1190,17 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1948921558832846}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -1337,11 +1349,11 @@ MonoBehaviour:
   textMesh: {fileID: 0}
   rawTopLeftBounds: {x: 34.97, y: -24.795, z: 0}
   rawBottomRightBounds: {x: -34.97, y: 24.795, z: 0}
-  topLeftBounds: {x: 4.1019206, y: 1.193565, z: -3.5940042}
-  topRightBounds: {x: 4.4936285, y: 1.193565, z: -3.5939999}
-  bottomLeftBounds: {x: 4.1019206, y: 0.846435, z: -3.5940042}
-  bottomRightBounds: {x: 4.4936285, y: 0.846435, z: -3.5939999}
-  centerBounds: {x: 4.2977743, y: 1.02, z: -3.594002}
+  topLeftBounds: {x: -7.0474806, y: 1.193565, z: -1.2774985}
+  topRightBounds: {x: -6.5579004, y: 1.193565, z: -1.2774985}
+  bottomLeftBounds: {x: -7.0474806, y: 0.846435, z: -1.2774985}
+  bottomRightBounds: {x: -6.5579004, y: 0.846435, z: -1.2774985}
+  centerBounds: {x: -6.8026905, y: 1.02, z: -1.2774985}
   maxX: 48.68571
   minY: -6.9900017
   unwrappedMaxX: 48.68571
@@ -1579,11 +1591,11 @@ MonoBehaviour:
   textMesh: {fileID: 0}
   rawTopLeftBounds: {x: 34.97, y: -24.795, z: 0}
   rawBottomRightBounds: {x: -34.97, y: 24.795, z: 0}
-  topLeftBounds: {x: 3.6501899, y: 1.193565, z: -3.5940099}
-  topRightBounds: {x: 4.041898, y: 1.193565, z: -3.594005}
-  bottomLeftBounds: {x: 3.6501899, y: 0.846435, z: -3.5940099}
-  bottomRightBounds: {x: 4.041898, y: 0.846435, z: -3.594005}
-  centerBounds: {x: 3.8460438, y: 1.02, z: -3.5940075}
+  topLeftBounds: {x: -7.6120806, y: 1.193565, z: -1.2774985}
+  topRightBounds: {x: -7.1225004, y: 1.193565, z: -1.2774985}
+  bottomLeftBounds: {x: -7.6120806, y: 0.846435, z: -1.2774985}
+  bottomRightBounds: {x: -7.1225004, y: 0.846435, z: -1.2774985}
+  centerBounds: {x: -7.3672905, y: 1.02, z: -1.2774985}
   maxX: 48.68571
   minY: -6.9900017
   unwrappedMaxX: 48.68571
@@ -1755,11 +1767,11 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   start:
-    Position: {x: 0, y: 0, z: 0}
+    Position: {x: -0.25, y: 0, z: -1}
     Rotation: {x: 0, y: 0, z: 0, w: 1}
     Scale: {x: 1, y: 1, z: 1}
   end:
-    Position: {x: 0, y: 0, z: -1.08}
+    Position: {x: -0.5, y: 0, z: -1.5}
     Rotation: {x: 0, y: 0, z: 0, w: 1}
     Scale: {x: 1, y: 1, z: 1}
   progress: 0
@@ -1836,7 +1848,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   start:
     Position: {x: 0, y: 0, z: 0}
-    Rotation: {x: 0.70090926, y: 0, z: 0, w: 0.71325046}
+    Rotation: {x: 0.7193398, y: 0, z: 0, w: 0.6946584}
     Scale: {x: 1, y: 1, z: 1}
   end:
     Position: {x: 0, y: 0, z: 0}
@@ -1896,7 +1908,7 @@ LineRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 702a83fc7925bf94a80546e8853c8cd0, type: 2}
+  - {fileID: 2100000, guid: d19350b1439a9fb4991038f23882e49d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1927,13 +1939,40 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.89743614
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6980057
+        value: 0.87179476
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.8689459
+        value: 0.99358964
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.96012694
+        value: 0.8461555
+        inSlope: -4.12392
+        outSlope: -4.12392
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.5625626
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -1969,10 +2008,22 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 2
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!135 &135084562995694426
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1580499610261998}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: -0.63}
 --- !u!212 &212004856746178646
 SpriteRenderer:
   m_ObjectHideFlags: 1
