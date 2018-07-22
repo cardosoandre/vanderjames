@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Events;
 using VDJ.BuilderGame.GameState;
 using VDJ.BuilderGame.Objects.Buildings;
 
@@ -47,8 +48,10 @@ namespace VDJ.BuilderGame.GameState
 
         private bool timerStarted;
         private float Timer;
+        private int remainingSpotsCount;
 
         public float score;
+        private bool allSpotsBuilt = false;
 
         private void Awake()
         {
@@ -57,6 +60,8 @@ namespace VDJ.BuilderGame.GameState
 
         private void Start()
         {
+            ListenToBuildingSpots();
+
             Debug.Log("Starting Game Coroutine");
 
             if (GameStateManager.Instance != null)
@@ -65,6 +70,30 @@ namespace VDJ.BuilderGame.GameState
             StartCoroutine(GameCoroutine());
         }
 
+        private void ListenToBuildingSpots()
+        {
+            remainingSpotsCount = buildingSpots.Count;
+
+            foreach (var spot in buildingSpots)
+            {
+                spot.Built.AddListener(OnBuildingBuilt);
+            }
+        }
+
+        private void OnBuildingBuilt()
+        {
+            remainingSpotsCount--;
+            if(remainingSpotsCount <= 0)
+            {
+                OnAllSpotsBuilt();
+            }
+        }
+
+        [Button("Fake Ending")]
+        private void OnAllSpotsBuilt()
+        {
+            allSpotsBuilt = true;
+        }
 
         public void Update()
         {
@@ -87,12 +116,16 @@ namespace VDJ.BuilderGame.GameState
 
             StartTimer();
 
-            yield return new WaitUntil(TimerOver);
+            yield return new WaitUntil(HasEndCondition);
+
 
 
             PlayerManager.Instance.StopAllPlayers();
 
-            GameUI.Instance.ShowResults(score);
+
+            if(allSpotsBuilt)
+                GameUI.Instance.ShowVictory();
+            
 
             yield return new WaitForSeconds(6);
 
@@ -105,9 +138,9 @@ namespace VDJ.BuilderGame.GameState
             timerStarted = true;
             Timer = settings.totalTime;
         }
-        private bool TimerOver()
+        private bool HasEndCondition()
         {
-            return timerStarted && Timer < 0;
+            return allSpotsBuilt || (timerStarted && Timer < 0);
         }
 
         private IEnumerator SpawnPeriodicalResources()

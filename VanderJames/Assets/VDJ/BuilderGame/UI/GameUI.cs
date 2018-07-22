@@ -40,4 +40,10 @@ public class GameUI : MonoBehaviour {
 
         EndPanelText.text = string.Format("Sua pontuação foi {0}", score);
     }
+
+    public void ShowVictory()
+    {
+        text.gameObject.SetActive(true);
+        text.text = "Parabens!";
+    }
 }
