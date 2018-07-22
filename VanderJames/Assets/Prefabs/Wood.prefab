@@ -82,7 +82,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4016025103881614}
   - component: {fileID: 135315840048031396}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Col
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1893387173487618}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.5209997, y: 0, z: -4.115}
+  m_LocalPosition: {x: 2.6, y: 0, z: -3.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4016025103881614}
@@ -466,6 +466,9 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  anchorSettigns:
+    dampSmoothTime: 0.1
+    requireStuck: 0
 --- !u!135 &135315840048031396
 SphereCollider:
   m_ObjectHideFlags: 1

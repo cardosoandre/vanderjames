@@ -21,6 +21,8 @@ namespace VDJ.BuilderGame
 
         private PlayerConfig data;
 
+        public Collider col;
+
         [Space]
         public MovementSettings MoveSettings;
         public Settings settings;
@@ -319,6 +321,7 @@ namespace VDJ.BuilderGame
             public override void Leave()
             {
                 handle.OnLeave();
+                owner.col.enabled = true;
             }
 
             public override void Update()
@@ -327,6 +330,11 @@ namespace VDJ.BuilderGame
                 {
                     owner.GoToFreeState();
                 }
+            }
+
+            public override ICargo GetCargo()
+            {
+                return handle as ICargo;
             }
         }
 

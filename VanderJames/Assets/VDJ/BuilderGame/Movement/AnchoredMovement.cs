@@ -12,6 +12,7 @@ namespace VDJ.BuilderGame.Movement
         public class Settings
         {
             public float dampSmoothTime = .1f;
+            public bool requireStuck = true;
         }
 
         //Dependencies
@@ -42,7 +43,7 @@ namespace VDJ.BuilderGame.Movement
         }
         public void MoveFixedUpdate()
         {
-            if(stuck)
+            if(stuck || !settings.requireStuck)
             {
                 UpdateStuck();
             }
@@ -59,14 +60,16 @@ namespace VDJ.BuilderGame.Movement
                 UpdateBeforeStuck();
             }
         }
-
+        
         public void Begin()
         {
             rb.velocity = Vector3.zero;
+            rb.isKinematic = true;
         }
 
         public void Leave()
         {
+            rb.isKinematic = false;
         }
         #endregion
 

@@ -20,8 +20,13 @@ namespace VDJ.BuilderGame {
         public float speed = 0.5f;
         public Direction direction = Direction.Right;
         public float waitTime = 2.0f;
+        public float cargoShieldTime = 1.0f;
 
         private ICargo myCargo;
+
+        private float timeWhenCargoEntered;
+
+        private float TimeWithCargo { get { return Time.time - timeWhenCargoEntered; } }
 
         State state;
         private Rigidbody rb;
@@ -104,7 +109,19 @@ namespace VDJ.BuilderGame {
 
             public virtual void OnNewCargo(ICargo cargo)
             {
-                
+                if (cargo == null)
+                    return;
+                if (owner.HasCargo)
+                {
+                    return;
+                }
+
+                if (cargo.CanGetIntoBoat())
+                {
+                    cargo.GetIntoBoat(owner);
+                    owner.myCargo = cargo;
+                    owner.timeWhenCargoEntered = Time.time;
+                }
             }
         }
 
@@ -119,8 +136,10 @@ namespace VDJ.BuilderGame {
 
             public override void Begin()
             {
-                if(owner.myCargo != null)
-                    owner.myCargo.Release();
+                if (owner.TimeWithCargo > owner.cargoShieldTime)
+                {
+                    owner.ReleaseCargo();
+                }
             }
 
             public override void Leave()
@@ -138,14 +157,22 @@ namespace VDJ.BuilderGame {
                     owner.GoToCrossingState();
                 }
             }
+            
+        }
 
-            public override void OnNewCargo(ICargo cargo)
+        private void ReleaseCargo()
+        {
+            if (myCargo != null)
             {
-                if (cargo.CanGetIntoBoat())
-                {
-                    cargo.GetIntoBoat(owner);
-                    owner.myCargo = cargo;
-                }
+                myCargo.Release();
+                myCargo = null;
+            }
+        }
+        private bool HasCargo
+        {
+            get
+            {
+                return myCargo != null;
             }
         }
 

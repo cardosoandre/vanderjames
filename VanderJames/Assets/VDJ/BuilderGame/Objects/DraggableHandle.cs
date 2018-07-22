@@ -9,7 +9,7 @@ using VDJ.Utils;
 
 namespace VDJ.BuilderGame.Objects
 {
-    public class DraggableHandle : Handle
+    public class DraggableHandle : Handle, ICargo
     {
         public static float ZeroThreshold = 0.1f;
         [Serializable]
@@ -37,7 +37,7 @@ namespace VDJ.BuilderGame.Objects
                 get
                 {
 
-                    if (owner.grabbed && owner.settings.radius - owner.delta.magnitude < Settings.BorderSize)
+                    if (owner.state == State.Grabbed && owner.settings.radius - owner.delta.magnitude < Settings.BorderSize)
                     {
                         return owner.delta.normalized;
                     } else
@@ -59,23 +59,30 @@ namespace VDJ.BuilderGame.Objects
         private FreeMovement.Settings moveSettings;
 
         private FreeMovement movement;
+        private AnchoredMovement anchored;
 
         public UnityEvent Grabbed;
         public UnityEvent Released;
 
         //State
-        private bool grabbed = false;
+        private enum State { Grabbed, Free, Boat}
+
+        State state = State.Free;
+
+        //private bool grabbed = false;
+
         private IPullProvider pullProvider;
 
         private Vector3 delta = Vector3.zero;
         private Vector3 gravityDampVel;
         private HandleMoveInput moveInput;
+        public AnchoredMovement.Settings anchorSettigns;
 
         public override bool CanBeGrabbed
         {
             get
             {
-                return !grabbed;
+                return state == State.Free;
             }
         }
 
@@ -83,16 +90,19 @@ namespace VDJ.BuilderGame.Objects
 
         public override void OnGrab(IPullProvider pullProvider)
         {
-            grabbed = true;
+            state = State.Grabbed;
             this.pullProvider = pullProvider;
             delta = Vector3.zero;
+
+            gameObject.layer = LayerMask.NameToLayer("IgnorePlayer");
 
             Grabbed.Invoke();
         }
 
         public override void OnLeave()
         {
-            grabbed = false;
+            gameObject.layer = LayerMask.NameToLayer("Default");
+            state = State.Free;
 
             Released.Invoke();
         }
@@ -111,9 +121,13 @@ namespace VDJ.BuilderGame.Objects
 
         private void Update()
         {
-            if (grabbed)
+
+            if (state== State.Grabbed)
             {
                 UpdateGrabbed();
+            } else if(state == State.Boat)
+            {
+
             }
             else
             {
@@ -126,7 +140,15 @@ namespace VDJ.BuilderGame.Objects
         }
         private void FixedUpdate()
         {
-            movement.FixedMove();
+            if (state == State.Boat)
+            {
+               anchored.MoveFixedUpdate();
+            }
+            else
+            {
+                movement.FixedMove();
+            }
+            Debug.Log(rb.velocity.magnitude);
         }
 
         private void UpdateGrabbed()
@@ -156,9 +178,38 @@ namespace VDJ.BuilderGame.Objects
 
         }
 
+        private void OnCollisionStay(Collision collision)
+        {
+            Debug.LogFormat("CollisionWith {0}", collision.gameObject);
+        }
+
         private void UpdateAnchor()
         {
             anchor.position = transform.position + delta;
+        }
+
+        public void Release()
+        {
+
+            anchored.Leave();
+            state = State.Free;
+        }
+
+        public bool CanGetIntoBoat()
+        {
+            return true;
+        }
+
+        public void GetIntoBoat(BoatMachineState boatMachineState)
+        {
+            if(state == State.Grabbed)
+            {
+                ForceLeave();
+            }
+
+            state = State.Boat;
+            anchored = new AnchoredMovement(boatMachineState.anchor, rb, anchorSettigns);
+            anchored.Begin();
         }
     }
 }
