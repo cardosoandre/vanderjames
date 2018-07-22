@@ -24,6 +24,7 @@ namespace VDJ.BuilderGame.Objects.Buildings
             public Color lineColor;
         }
 
+        public event Action BuiltEvent;
 
         public SpriteRenderer sr;
         public ResourceDeliveryPoint deliveryPoint;
@@ -59,6 +60,8 @@ namespace VDJ.BuilderGame.Objects.Buildings
         {
             StageManager.Instance.score += settings.score;
             Built.Invoke();
+            if (BuiltEvent != null)
+                BuiltEvent();
             
             CameraHighlight.instance.LookAtTarget(lookPos, settings.name);
             if (settings.hasText)

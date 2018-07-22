@@ -76,7 +76,7 @@ namespace VDJ.BuilderGame.GameState
 
             foreach (var spot in buildingSpots)
             {
-                spot.Built.AddListener(OnBuildingBuilt);
+                spot.BuiltEvent+= OnBuildingBuilt;
             }
         }
 
