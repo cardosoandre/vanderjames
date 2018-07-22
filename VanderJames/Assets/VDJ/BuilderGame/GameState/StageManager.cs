@@ -106,7 +106,7 @@ namespace VDJ.BuilderGame.GameState
         {
             SpawnResources(settings.startingResourceSpawn);
 
-            while (buildingSpots.Count > 0)
+            while (true)
             {
                 yield return new WaitForSeconds(settings.resourceSpawnWait);
                 SpawnResources(settings.resourceSpawnsPerTime);
