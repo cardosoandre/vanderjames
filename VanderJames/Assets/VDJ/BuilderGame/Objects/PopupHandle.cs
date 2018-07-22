@@ -33,13 +33,13 @@ namespace VDJ.BuilderGame.Objects
         private IPullProvider pullProvider;
         private bool isLocked = false;
 
-        public override bool CanBeGrabbed { get { return !grabbed; } }
+        public override bool CanBeGrabbed { get { return !grabbed && !isLocked; } }
         public override Transform Anchor { get { return anchor.transform; } }
 
         public UnityEvent Locked;
         public UnityEvent Grabbed;
         public UnityEvent Released;
-
+        
         public override void OnGrab(IPullProvider pullProvider)
         {
             this.pullProvider = pullProvider;
