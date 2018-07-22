@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,13 +14,19 @@ namespace VDJ.BuilderGame {
 
         public PlayerObjectFinder playerObjectFinder;
 
+        public Transform anchor;
+
         [Space]
         public float speed = 0.5f;
         public Direction direction = Direction.Right;
         public float waitTime = 2.0f;
 
+        private ICargo myCargo;
+
         State state;
         private Rigidbody rb;
+
+        public Transform Anchor { get { return anchor; }  }
 
         // Use this for initialization
         void Start()
@@ -38,7 +45,9 @@ namespace VDJ.BuilderGame {
         void PlayerObjectFinder_TargetChanged(Utils.TargetChangeEventData<PlayerController> obj)
         {
             if (obj.NewTarget != null) {
-                obj.NewTarget.OnTouchedBoat(this);   
+                var cargo = obj.NewTarget.GetCargo();
+
+                state.OnNewCargo(cargo);
             }
         }
 
@@ -92,6 +101,11 @@ namespace VDJ.BuilderGame {
 
             public abstract void Begin();
             public abstract void Leave();
+
+            public virtual void OnNewCargo(ICargo cargo)
+            {
+                
+            }
         }
 
         private class Docked : State
@@ -105,7 +119,8 @@ namespace VDJ.BuilderGame {
 
             public override void Begin()
             {
-
+                if(owner.myCargo != null)
+                    owner.myCargo.Release();
             }
 
             public override void Leave()
@@ -121,6 +136,15 @@ namespace VDJ.BuilderGame {
                 {
                     owner.ChangeDirection();
                     owner.GoToCrossingState();
+                }
+            }
+
+            public override void OnNewCargo(ICargo cargo)
+            {
+                if (cargo.CanGetIntoBoat())
+                {
+                    cargo.GetIntoBoat(owner);
+                    owner.myCargo = cargo;
                 }
             }
         }

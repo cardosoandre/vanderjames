@@ -97,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1283344456607742}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.8454256, y: -4.7124844, z: 6.890144}
+  m_LocalPosition: {x: -2.4, y: 0, z: -2.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4228616470852072}
@@ -177,7 +177,9 @@ MonoBehaviour:
   rb: {fileID: 54121211279111018}
   HandleFinder: {fileID: 114646693419281108}
   HandleIndicator: {fileID: 4228616470852072}
-  settings: {fileID: 11400000, guid: 227a2ddcefa88644282ca33bf09b30fe, type: 2}
+  MoveSettings: {fileID: 11400000, guid: 227a2ddcefa88644282ca33bf09b30fe, type: 2}
+  settings:
+    respawnTime: 2
 --- !u!114 &114646693419281108
 MonoBehaviour:
   m_ObjectHideFlags: 1

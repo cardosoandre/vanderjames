@@ -6,6 +6,7 @@ using UnityEngine;
 using VDJ.BuilderGame.GameState;
 using VDJ.BuilderGame.Movement;
 using VDJ.BuilderGame.Objects;
+using VDJ.Utils;
 
 namespace VDJ.BuilderGame
 {
@@ -39,24 +40,32 @@ namespace VDJ.BuilderGame
         #region Events
         public void OnFell(WaterHazard waterHazard, Vector3 respawnPoint)
         {
-            GoToRespawnState(respawnPoint);
+            state.OnTouchedWater(respawnPoint);
         }
 
+        
 
-        public void OnTouchedBoat(BoatMachineState boatMachineState)
+        public ICargo GetCargo()
         {
-            state.OnTouchedBoat(boatMachineState);
-            GoToOnBoatState(boatMachineState.transform);
+            return state.GetCargo();
         }
 
-        public void OnLeftBoatTouch(BoatPlayerCrossing boatPlayerCrossing)
+
+        public bool CanGetIntoBoat()
         {
-            
+            return state.CanGetIntoBoat();
         }
 
-        public void LoadIntoBoat() {
-            
+        public void GetIntoBoat(BoatMachineState boatMachineState)
+        {
+            GoToOnBoatState(boatMachineState);
         }
+
+        //public void OnLeftBoatTouch(BoatPlayerCrossing boatPlayerCrossing)
+        //{
+
+        //}
+
 
         public void Release() {
             GoToFreeState();
@@ -182,10 +191,12 @@ namespace VDJ.BuilderGame
         }
 
 
-        private void GoToOnBoatState(Transform boatAnchor)
+
+        private void GoToOnBoatState(BoatMachineState boatMachineState)
         {
-            SetState(new OnBoatState(this, boatAnchor));
+            SetState(new OnBoatState(this, boatMachineState));
         }
+
         #endregion
 
         #region States
@@ -202,9 +213,21 @@ namespace VDJ.BuilderGame
 
             public abstract void Begin();
             public abstract void Leave();
+            
 
-            public virtual void OnTouchedBoat(BoatMachineState boatMachineState)
+            public virtual ICargo GetCargo()
             {
+                return owner;
+            }
+
+            public virtual bool CanGetIntoBoat()
+            {
+                return true;
+            }
+
+            public virtual void OnTouchedWater(Vector3 respawnPoint)
+            {
+                owner.GoToRespawnState(respawnPoint);
             }
         }
 
@@ -225,6 +248,10 @@ namespace VDJ.BuilderGame
 
             public override void Update()
             {
+            }
+            public override bool CanGetIntoBoat()
+            {
+                return false;
             }
         }
 
@@ -257,12 +284,7 @@ namespace VDJ.BuilderGame
                 if (target.CanBeGrabbed)
                     owner.GrabHandle(target);
             }
-
-            public override void OnTouchedBoat(BoatMachineState boatMachineState)
-            {
-                base.OnTouchedBoat(boatMachineState);
-                owner.GoToOnBoatState(boatMachineState.transform);
-            }
+            
         }
 
 
@@ -343,17 +365,17 @@ namespace VDJ.BuilderGame
 
         private class OnBoatState : State
         {
-            private Transform anchor;
+            private BoatMachineState boat;
 
-            public OnBoatState(PlayerController owner, Transform boatAnchor):base(owner)
+            public OnBoatState(PlayerController owner, BoatMachineState boat):base(owner)
             {
-                anchor = boatAnchor;
+                this.boat = boat;
             }
 
             public override void Begin()
             {
                 print("began onBoatState");
-                owner.ToNoMove();
+                owner.ToAnchor(boat.Anchor);
             }
 
             public override void Leave()
@@ -363,9 +385,14 @@ namespace VDJ.BuilderGame
 
             public override void Update()
             {
-                owner.transform.position = anchor.position;
+            }
+            public override void OnTouchedWater(Vector3 respawnPoint)
+            {
+                Debug.Log("I don't even care");
+                owner.StartCoroutine(CoroutineUtils.WaitThenDo(() => Debug.Log("I Love it"), 1.0f));
             }
         }
+        
         #endregion
     }
 }
