@@ -13,6 +13,9 @@ namespace VDJ.BuilderGame.GameState
     public class StageManager : MonoBehaviour
     {
         public static StageManager Instance { get; private set; }
+        public float RemainingTime { get { return Timer; } }
+        public bool TimerStarted { get { return timerStarted; } }
+
         [Serializable]
         public class Settings
         {
@@ -42,7 +45,7 @@ namespace VDJ.BuilderGame.GameState
 
         public List<Transform> woodSpawns;
 
-        private bool TimerStarted;
+        private bool timerStarted;
         private float Timer;
 
         public float score;
@@ -99,12 +102,12 @@ namespace VDJ.BuilderGame.GameState
 
         private void StartTimer()
         {
-            TimerStarted = true;
+            timerStarted = true;
             Timer = settings.totalTime;
         }
         private bool TimerOver()
         {
-            return TimerStarted && Timer < 0;
+            return timerStarted && Timer < 0;
         }
 
         private IEnumerator SpawnPeriodicalResources()
