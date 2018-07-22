@@ -622,7 +622,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174150874665366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.1295753, y: -7.1183325e-17, z: 1.865812}
+  m_LocalPosition: {x: -0.5862877, y: 1.3991232, z: -7.0393558}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4964829468042694}
@@ -883,6 +883,8 @@ MonoBehaviour:
     hasText: 1
     lineCharacter: '@nassau'
     lineText: "Este pr\xE9dio vai ser muito \xFAtil"
+    lineColor: {r: 0, g: 0, b: 0, a: 0}
+  lr: {fileID: 120671150003276966}
 --- !u!114 &114054479228697834
 MonoBehaviour:
   m_ObjectHideFlags: 1
