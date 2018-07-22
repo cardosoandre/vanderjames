@@ -1,17 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Rewired;
-using UnityEngine.Events;
+using UnityEngine.UI;
 using VDJ.BuilderGame.GameState;
 using System.Linq;
+using System.Collections;
 
 namespace VDJ.BuilderGame {
 	public class PlayeDropInDetection : MonoBehaviour {
 
 		public int numberOfPlayers;
 		public int[] playerStatus;
-
 
         public PlayerConfig[] playerConfigs;
 
@@ -20,6 +18,9 @@ namespace VDJ.BuilderGame {
 
         private bool TriggeredReady = false;
 
+        [Space]
+        public GameObject countDownText;
+        public GameObject[] canvasStatusText;
 
 		void Awake() {
 			ctlrDetection = new ControllerDetection();
@@ -27,8 +28,8 @@ namespace VDJ.BuilderGame {
 			ctlrDetection.disconnectionDelegate = DecreasePlayerCount;
             
 
-			playerStatus = new int[4];
-			players = new Player[4];
+			playerStatus = new int[3];
+			players = new Player[3];
 
 			for (int i = 0; i < players.Length; i++) {
 				playerStatus[i] = -1;
@@ -44,31 +45,50 @@ namespace VDJ.BuilderGame {
 		void Update () {
 			for (int i = 0; i < numberOfPlayers; i++) {
 				if(players[i].GetButtonDown("Action")) {
-					// playerStatus.Insert(player.id, 1);
-					// playerStatus.RemoveAt(player.id + 1);
 					playerStatus[i] = 1;
 				}
 			}
 
 
 			bool allOk = true;
-			foreach (int status in playerStatus) {
-				if (status == 0) {
-					allOk = false;
+            for (int i = 0; i < 3; i++) {
+                if (playerStatus[i] == 0) {
+                    allOk = false;
 				}
+
+                Text textScript;
+                switch (playerStatus[i])
+                {
+                    case -1:
+                        textScript = canvasStatusText[i].GetComponent<Text>();
+                        textScript.text = "Conecte um controle!";
+                        break;
+                    case 0:
+                        textScript = canvasStatusText[i].GetComponent<Text>();
+                        textScript.text = "Aperte X";
+                        break;
+                    case 1:
+                        textScript = canvasStatusText[i].GetComponent<Text>();
+                        textScript.text = "Player " + (i+1) + " pronto";
+                        break;
+                }
 			}
 
 			if (allOk == true && numberOfPlayers > 0) {
-				if(!TriggeredReady)
-                {
-                    GameStateManager.Instance.GoToBattle(playerConfigs.Take(numberOfPlayers).ToArray());
-                    //initialize game with
-                    print("GAME IS READY TO BEGIN!!!!");
-                    
-                }
+                StartCoroutine(StartGame());
 			}
 		}
 		
+        IEnumerator StartGame() {
+            countDownText.GetComponent<Text>().text = "Iniciando em 3";
+            yield return new WaitForSeconds(1);
+            countDownText.GetComponent<Text>().text = "Iniciando em 2";
+            yield return new WaitForSeconds(1);
+            countDownText.GetComponent<Text>().text = "Iniciando em 1";
+            yield return new WaitForSeconds(1);
+            GameStateManager.Instance.GoToBattle(playerConfigs.Take(numberOfPlayers).ToArray());
+        }
+
 		void IncreasePlayerCount (int id) {
 			numberOfPlayers += 1;
 			playerStatus[id] = 0;
