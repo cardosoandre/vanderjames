@@ -51,6 +51,8 @@ namespace VDJ.BuilderGame.Objects.Buildings
         {
             StageManager.Instance.score += settings.score;
             Built.Invoke();
+            
+            CameraHighlight.instance.LookAtTarget(transform, settings.name);
         }
     }
 }

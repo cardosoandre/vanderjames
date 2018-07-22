@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System;
 
 public class CameraHighlight : MonoBehaviour {
 
@@ -16,7 +17,12 @@ public class CameraHighlight : MonoBehaviour {
     public Text letteringText;
 
     public GameObject particlePrefab;
-    public Transform focus;
+    //public Transform focus;
+
+
+    public float timeToTarget = .8f;
+    public float timeToComeBack = .8f;
+    public float timeLookingAtObject = 1.0f;
 
     private void Awake()
     {
@@ -32,18 +38,30 @@ public class CameraHighlight : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            zoomed = !zoomed;
-            if (zoomed)
-                LookAtTarget(focus, .5f);
-            else ResetView(.5f);
-        }
+        //if (Input.GetKeyDown(KeyCode.A))
+        //{
+        //    zoomed = !zoomed;
+        //    if (zoomed)
+        //        LookAtTarget(focus, .5f);
+        //    else ResetView(.5f);
+        //}
     }
 
-    public void LookAtTarget(Transform target,float duration){
-        transform.DOLookAt(target.position, duration).SetEase(Ease.OutBack);
-        Camera.main.DOFieldOfView(15, duration).SetEase(Ease.OutBack).OnComplete(()=>Flash(target));
+    public void LookAtTarget(Transform target, string targetName){
+        letteringText.text = targetName;
+        StopAllCoroutines();
+        transform.DOLookAt(target.position, timeToTarget).SetEase(Ease.OutBack);
+        Camera.main.DOFieldOfView(15, timeToTarget).SetEase(Ease.OutBack).OnComplete(()=>
+        {
+            Flash(target);
+            StartCoroutine(WaitThenReset());
+        });
+    }
+
+    private IEnumerator WaitThenReset()
+    {
+        yield return new WaitForSeconds(timeLookingAtObject);
+        ResetView();
     }
 
     void Flash(Transform target){
@@ -61,11 +79,11 @@ public class CameraHighlight : MonoBehaviour {
 
     }
 
-    public void ResetView(float duration)
+    public void ResetView()
     {
         transform.DOComplete();
-        transform.DORotate(originalRotation, duration);
-        Camera.main.DOFieldOfView(originalFOV, duration);
+        transform.DORotate(originalRotation, timeToComeBack);
+        Camera.main.DOFieldOfView(originalFOV, timeToComeBack);
         letteringCanvas.DOFade(0, .2f);
     }
 }

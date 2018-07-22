@@ -119,8 +119,9 @@ namespace VDJ.BuilderGame.GameState
 
             for (int i = 0; i < randomSort.Length; i++)
             {
-
-                var spawnPoint = randomSort[i].transform.position + UnityEngine.Random.insideUnitSphere * settings.spawnRange;
+                var circle = UnityEngine.Random.insideUnitCircle;
+                
+                var spawnPoint = randomSort[i].transform.position + new Vector3(circle.x, 0, circle.y) * settings.spawnRange;
                 if (i%2 == 0)
                 {
                     Spawn(settings.stonePrefab, spawnPoint);
