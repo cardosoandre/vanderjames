@@ -4,17 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using System;
+using VDJ.Utils;
 
 public class DialogSystem : MonoBehaviour {
     public static DialogSystem Instance { get; private set; }
 
-
+    public Transform ui;
     public Image charImage;
     public SuperTextMesh charNameText;
     public SuperTextMesh charLineText;
 
     private int count = 0;
     public string[] lines;
+
+    public float messageTime = 2.0f;
+
+    public int indx = 0;
 
     public List<Character> characters;
 
@@ -25,7 +31,7 @@ public class DialogSystem : MonoBehaviour {
 
     private void Start()
     {
-        //Read("@jorge",lines[0]);
+        Read("@nassau",lines[0]);
     }
 
     private void Update()
@@ -45,7 +51,30 @@ public class DialogSystem : MonoBehaviour {
 
     public void Read(string reader, string line){
 
+        ShowUI();
         CharLookup(reader, line);
+
+        indx++;
+        var myIndx = indx;
+        StartCoroutine(CoroutineUtils.WaitThenDo(() =>
+            {
+                if (indx == myIndx)
+                {
+                    HideUI();
+                }
+            }, messageTime
+        ));
+        
+    }
+
+    private void ShowUI()
+    {
+        ui.gameObject.SetActive(true);
+    }
+
+    private void HideUI()
+    {
+        ui.gameObject.SetActive(false);
     }
 
     private void PlaceLookup (){

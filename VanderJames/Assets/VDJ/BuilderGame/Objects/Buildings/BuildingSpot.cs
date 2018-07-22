@@ -21,6 +21,7 @@ namespace VDJ.BuilderGame.Objects.Buildings
             public bool hasText;
             public string lineCharacter;
             public string lineText;
+            public Color lineColor;
         }
 
 
@@ -35,6 +36,7 @@ namespace VDJ.BuilderGame.Objects.Buildings
 
         public Settings settings;
 
+        public LineRenderer lr;
 
         public void Activate()
         {
@@ -49,6 +51,8 @@ namespace VDJ.BuilderGame.Objects.Buildings
         {
             sr.sprite = settings.sprite;
             deliveryPoint.cost = settings.cost;
+            lr.startColor = settings.lineColor;
+            lr.endColor = settings.lineColor;
         }
 
         public void OnBuilt()

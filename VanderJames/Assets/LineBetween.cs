@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class LineBetween : MonoBehaviour {
     public Transform[] transforms;
+    public Vector3 offset;
 
     public LineRenderer lr;
 
@@ -21,6 +22,6 @@ public class LineBetween : MonoBehaviour {
 
     private Vector3[] PosArray()
     {
-        return transforms.Select(x => x.position).ToArray();
+        return transforms.Select(x => x.position + offset).ToArray();
     }
 }

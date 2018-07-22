@@ -13,6 +13,7 @@ namespace VDJ.BuilderGame {
         public GameObject leftSideDock;
 
         public PlayerObjectFinder playerObjectFinder;
+        public SpriteRenderer sr;
 
         public Transform anchor;
 
@@ -22,6 +23,7 @@ namespace VDJ.BuilderGame {
         public float waitTime = 2.0f;
         public float cargoShieldTime = 1.0f;
         public float leaveOffset = 2.0f;
+
 
         private ICargo myCargo;
 
@@ -40,6 +42,7 @@ namespace VDJ.BuilderGame {
             rb = GetComponent<Rigidbody>();
             SetState(new Crossing(this));
             playerObjectFinder.TargetChanged += PlayerObjectFinder_TargetChanged;
+            UpdateSpriteDirection();
         }
 
         // Update is called once per frame
@@ -69,6 +72,12 @@ namespace VDJ.BuilderGame {
             {
                 direction = Direction.Right;
             }
+            UpdateSpriteDirection();
+        }
+
+        private void UpdateSpriteDirection()
+        {
+            sr.flipX = direction == Direction.Right;
         }
 
         private void SetState(State value)
