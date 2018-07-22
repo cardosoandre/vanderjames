@@ -142,7 +142,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1716057030227284}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.35, y: 0, z: 0}
+  m_LocalPosition: {x: -0.46, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4274051554360166}
@@ -213,7 +213,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1650536996196000}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.71, y: 0, z: 0}
+  m_LocalPosition: {x: 0.76, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4274051554360166}
@@ -289,10 +289,10 @@ MonoBehaviour:
   playerObjectFinder: {fileID: 114286075668384544}
   sr: {fileID: 212597481146942738}
   anchor: {fileID: 4746544095800582}
-  speed: 0.5
+  speed: 0.75
   direction: 0
-  waitTime: 2
-  cargoShieldTime: 3
+  waitTime: 1
+  cargoShieldTime: 0.5
   leaveOffset: 0.6
 --- !u!114 &114286075668384544
 MonoBehaviour:
