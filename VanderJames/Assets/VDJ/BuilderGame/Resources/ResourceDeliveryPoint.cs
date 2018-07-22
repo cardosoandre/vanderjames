@@ -51,6 +51,7 @@ namespace VDJ.BuilderGame.Resources
         {
             CostMet.Invoke();
         }
+        
 
         public IEnumerable<ResourceCost.Requirement> CurrentRequirements
         {

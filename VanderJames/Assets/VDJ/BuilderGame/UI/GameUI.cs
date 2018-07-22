@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,10 @@ public class GameUI : MonoBehaviour {
 
 
     public Text text;
+
+    public Transform endPanel;
+
+    public Text EndPanelText;
 
 
     private void Awake()
@@ -27,5 +32,12 @@ public class GameUI : MonoBehaviour {
     public void SetCountdown(int val)
     {
         text.text = val.ToString();
+    }
+
+    public void ShowResults(float score)
+    {
+        endPanel.gameObject.SetActive(true);
+
+        EndPanelText.text = string.Format("Sua pontuação foi {0}", score);
     }
 }
