@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c0c2dbd53b89e14584c405d6d14c60c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleSceneName: SpawnTests
+  battleSceneName: Game
   menuSceneName: PlayerHub
   data: []
 --- !u!4 &742900327
