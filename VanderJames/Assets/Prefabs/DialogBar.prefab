@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224715766770202676}
   - component: {fileID: 114676274165625548}
+  - component: {fileID: 82919925746793614}
   m_Layer: 5
   m_Name: DialogBar
   m_TagString: Untagged
@@ -46,6 +47,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1660460901112984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 224725654509233884}
+  - component: {fileID: 222601723977852486}
+  - component: {fileID: 114349880207515476}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1672539588018512
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,7 +84,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1696965356055534
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -83,7 +101,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1818342158929614
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -98,6 +116,101 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!82 &82919925746793614
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1098023078349140}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.347
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114037511884075514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,14 +271,14 @@ MonoBehaviour:
   showAudioFoldout: 1
   showEventFoldout: 1
   info:
-  - pos: {x: -289.125, y: 0.19999886, z: 0}
+  - pos: {x: -236.95, y: -4.04, z: 0}
     readTime: 0
     unreadTime: 0
     line: 0
     rawIndex: 0
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -189,14 +302,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -276.99167, y: 0.19999886, z: 0}
+  - pos: {x: -227.8448, y: -4.04, z: 0}
     readTime: 0.05
     unreadTime: 0
     line: 0
     rawIndex: 0
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -220,14 +333,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -266.67834, y: 0.19999886, z: 0}
+  - pos: {x: -220.3464, y: -4.04, z: 0}
     readTime: 0.1
     unreadTime: 0
     line: 0
     rawIndex: 1
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -251,14 +364,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -256.365, y: 0.19999886, z: 0}
+  - pos: {x: -212.84799, y: -4.04, z: 0}
     readTime: 0.15
     unreadTime: 0
     line: 0
     rawIndex: 2
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -282,14 +395,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -247.265, y: 0.19999886, z: 0}
+  - pos: {x: -205.8852, y: -4.04, z: 0}
     readTime: 0.2
     unreadTime: 0
     line: 0
     rawIndex: 3
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -313,14 +426,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -242.41167, y: 0.19999886, z: 0}
+  - pos: {x: -202.136, y: -4.04, z: 0}
     readTime: 0.25
     unreadTime: 0
     line: 0
     rawIndex: 4
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -344,14 +457,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -232.09833, y: 0.19999886, z: 0}
+  - pos: {x: -194.6376, y: -4.04, z: 0}
     readTime: 0.3
     unreadTime: 0
     line: 0
     rawIndex: 5
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -375,14 +488,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -222.99834, y: 0.19999886, z: 0}
+  - pos: {x: -187.6748, y: -4.04, z: 0}
     readTime: 0.35000002
     unreadTime: 0
     line: 0
     rawIndex: 6
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -406,14 +519,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -213.89835, y: 0.19999886, z: 0}
+  - pos: {x: -180.712, y: -4.04, z: 0}
     readTime: 0.40000004
     unreadTime: 0
     line: 0
     rawIndex: 7
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -437,14 +550,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -203.585, y: 0.19999886, z: 0}
+  - pos: {x: -173.2136, y: -4.04, z: 0}
     readTime: 0.45000005
     unreadTime: 0
     line: 0
     rawIndex: 8
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -468,14 +581,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -193.27167, y: 0.19999886, z: 0}
+  - pos: {x: -165.7152, y: -4.04, z: 0}
     readTime: 0.50000006
     unreadTime: 0
     line: 0
     rawIndex: 9
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -499,14 +612,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -184.17168, y: 0.19999886, z: 0}
+  - pos: {x: -158.7524, y: -4.04, z: 0}
     readTime: 0.5500001
     unreadTime: 0
     line: 0
     rawIndex: 10
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -530,14 +643,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -175.07169, y: 0.19999886, z: 0}
+  - pos: {x: -151.7896, y: -4.04, z: 0}
     readTime: 0.6000001
     unreadTime: 0
     line: 0
     rawIndex: 11
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -561,14 +674,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -164.75835, y: 0.19999886, z: 0}
+  - pos: {x: -144.2912, y: -4.04, z: 0}
     readTime: 0.6500001
     unreadTime: 0
     line: 0
     rawIndex: 12
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -592,14 +705,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -154.445, y: 0.19999886, z: 0}
+  - pos: {x: -136.7928, y: -4.04, z: 0}
     readTime: 0.7000001
     unreadTime: 0
     line: 0
     rawIndex: 13
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -623,14 +736,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -149.59167, y: 0.19999886, z: 0}
+  - pos: {x: -133.04361, y: -4.04, z: 0}
     readTime: 0.7500001
     unreadTime: 0
     line: 0
     rawIndex: 14
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -654,14 +767,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -140.49167, y: 0.19999886, z: 0}
+  - pos: {x: -126.0808, y: -4.04, z: 0}
     readTime: 0.80000013
     unreadTime: 0
     line: 0
     rawIndex: 15
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -685,14 +798,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -130.17833, y: 0.19999886, z: 0}
+  - pos: {x: -118.582405, y: -4.04, z: 0}
     readTime: 0.85000014
     unreadTime: 0
     line: 0
     rawIndex: 16
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -716,14 +829,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -121.07832, y: 0.19999886, z: 0}
+  - pos: {x: -111.619606, y: -4.04, z: 0}
     readTime: 0.90000015
     unreadTime: 0
     line: 0
     rawIndex: 17
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -747,14 +860,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -110.764984, y: 0.19999886, z: 0}
+  - pos: {x: -104.1212, y: -4.04, z: 0}
     readTime: 0.95000017
     unreadTime: 0
     line: 0
     rawIndex: 18
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -778,14 +891,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -100.451645, y: 0.19999886, z: 0}
+  - pos: {x: -96.6228, y: -4.04, z: 0}
     readTime: 1.0000001
     unreadTime: 0
     line: 0
     rawIndex: 19
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -809,14 +922,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -91.35164, y: 0.19999886, z: 0}
+  - pos: {x: -89.66, y: -4.04, z: 0}
     readTime: 1.0500001
     unreadTime: 0
     line: 0
     rawIndex: 20
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -840,14 +953,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -86.49831, y: 0.19999886, z: 0}
+  - pos: {x: -85.9108, y: -4.04, z: 0}
     readTime: 1.1
     unreadTime: 0
     line: 0
     rawIndex: 21
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -871,14 +984,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -76.18497, y: 0.19999886, z: 0}
+  - pos: {x: -78.4124, y: -4.04, z: 0}
     readTime: 1.15
     unreadTime: 0
     line: 0
     rawIndex: 22
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -902,14 +1015,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -65.87163, y: 0.19999886, z: 0}
+  - pos: {x: -70.914, y: -4.04, z: 0}
     readTime: 1.1999999
     unreadTime: 0
     line: 0
     rawIndex: 23
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -933,14 +1046,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -56.77162, y: 0.19999886, z: 0}
+  - pos: {x: -63.951202, y: -4.04, z: 0}
     readTime: 1.2499999
     unreadTime: 0
     line: 0
     rawIndex: 24
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -964,14 +1077,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -47.671616, y: 0.19999886, z: 0}
+  - pos: {x: -56.988403, y: -4.04, z: 0}
     readTime: 1.2999998
     unreadTime: 0
     line: 0
     rawIndex: 25
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -995,14 +1108,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -37.358276, y: 0.19999886, z: 0}
+  - pos: {x: -49.490005, y: -4.04, z: 0}
     readTime: 1.3499998
     unreadTime: 0
     line: 0
     rawIndex: 26
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1026,14 +1139,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -27.044952, y: 0.19999886, z: 0}
+  - pos: {x: -41.991608, y: -4.04, z: 0}
     readTime: 1.3999997
     unreadTime: 0
     line: 0
     rawIndex: 27
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1057,14 +1170,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -17.944946, y: 0.19999886, z: 0}
+  - pos: {x: -35.02881, y: -4.04, z: 0}
     readTime: 1.4499997
     unreadTime: 0
     line: 0
     rawIndex: 28
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1088,14 +1201,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -7.6316223, y: 0.19999886, z: 0}
+  - pos: {x: -27.53041, y: -4.04, z: 0}
     readTime: 1.4999996
     unreadTime: 0
     line: 0
     rawIndex: 29
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1119,14 +1232,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 1.4683838, y: 0.19999886, z: 0}
+  - pos: {x: -20.567612, y: -4.04, z: 0}
     readTime: 1.5499996
     unreadTime: 0
     line: 0
     rawIndex: 30
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1150,14 +1263,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 11.781708, y: 0.19999886, z: 0}
+  - pos: {x: -13.069214, y: -4.04, z: 0}
     readTime: 1.5999995
     unreadTime: 0
     line: 0
     rawIndex: 31
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1181,14 +1294,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 20.881714, y: 0.19999886, z: 0}
+  - pos: {x: -6.106415, y: -4.04, z: 0}
     readTime: 1.6499995
     unreadTime: 0
     line: 0
     rawIndex: 32
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1212,14 +1325,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 31.195038, y: 0.19999886, z: 0}
+  - pos: {x: 1.391983, y: -4.04, z: 0}
     readTime: 1.6999995
     unreadTime: 0
     line: 0
     rawIndex: 33
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1243,14 +1356,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 36.04837, y: 0.19999886, z: 0}
+  - pos: {x: 5.1411896, y: -4.04, z: 0}
     readTime: 1.7499994
     unreadTime: 0
     line: 0
     rawIndex: 34
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1274,14 +1387,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 46.361694, y: 0.19999886, z: 0}
+  - pos: {x: 12.639587, y: -4.04, z: 0}
     readTime: 1.7999994
     unreadTime: 0
     line: 0
     rawIndex: 35
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1305,14 +1418,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 56.67502, y: 0.19999886, z: 0}
+  - pos: {x: 20.137985, y: -4.04, z: 0}
     readTime: 1.8499993
     unreadTime: 0
     line: 0
     rawIndex: 36
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1336,14 +1449,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 65.775024, y: 0.19999886, z: 0}
+  - pos: {x: 27.100784, y: -4.04, z: 0}
     readTime: 1.8999993
     unreadTime: 0
     line: 0
     rawIndex: 37
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1367,14 +1480,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 70.62836, y: 0.19999886, z: 0}
+  - pos: {x: 30.84999, y: -4.04, z: 0}
     readTime: 1.9499992
     unreadTime: 0
     line: 0
     rawIndex: 38
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1398,14 +1511,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 80.94168, y: 0.19999886, z: 0}
+  - pos: {x: 38.348404, y: -4.04, z: 0}
     readTime: 1.9999992
     unreadTime: 0
     line: 0
     rawIndex: 39
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1429,14 +1542,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 91.255005, y: 0.19999886, z: 0}
+  - pos: {x: 45.846817, y: -4.04, z: 0}
     readTime: 2.0499992
     unreadTime: 0
     line: 0
     rawIndex: 40
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1460,14 +1573,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 100.35501, y: 0.19999886, z: 0}
+  - pos: {x: 52.809616, y: -4.04, z: 0}
     readTime: 2.0999992
     unreadTime: 0
     line: 0
     rawIndex: 41
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1491,14 +1604,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 105.20834, y: 0.19999886, z: 0}
+  - pos: {x: 56.558823, y: -4.04, z: 0}
     readTime: 2.1499991
     unreadTime: 0
     line: 0
     rawIndex: 42
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1522,14 +1635,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 114.30835, y: 0.19999886, z: 0}
+  - pos: {x: 63.52162, y: -4.04, z: 0}
     readTime: 2.199999
     unreadTime: 0
     line: 0
     rawIndex: 43
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1553,14 +1666,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 123.408356, y: 0.19999886, z: 0}
+  - pos: {x: 70.48442, y: -4.04, z: 0}
     readTime: 2.249999
     unreadTime: 0
     line: 0
     rawIndex: 44
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1584,14 +1697,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 133.72168, y: 0.19999886, z: 0}
+  - pos: {x: 77.982834, y: -4.04, z: 0}
     readTime: 2.299999
     unreadTime: 0
     line: 0
     rawIndex: 45
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1615,14 +1728,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 138.57501, y: 0.19999886, z: 0}
+  - pos: {x: 81.73204, y: -4.04, z: 0}
     readTime: 2.349999
     unreadTime: 0
     line: 0
     rawIndex: 46
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1646,14 +1759,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 148.88834, y: 0.19999886, z: 0}
+  - pos: {x: 89.23045, y: -4.04, z: 0}
     readTime: 2.399999
     unreadTime: 0
     line: 0
     rawIndex: 47
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1677,14 +1790,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 159.20166, y: 0.19999886, z: 0}
+  - pos: {x: 96.72887, y: -4.04, z: 0}
     readTime: 2.4499989
     unreadTime: 0
     line: 0
     rawIndex: 48
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1708,14 +1821,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 168.30167, y: 0.19999886, z: 0}
+  - pos: {x: 103.691666, y: -4.04, z: 0}
     readTime: 2.4999988
     unreadTime: 0
     line: 0
     rawIndex: 49
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1739,14 +1852,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 177.40167, y: 0.19999886, z: 0}
+  - pos: {x: 110.654465, y: -4.04, z: 0}
     readTime: 2.5499988
     unreadTime: 0
     line: 0
     rawIndex: 50
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1770,14 +1883,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 182.255, y: 0.19999886, z: 0}
+  - pos: {x: 114.40367, y: -4.04, z: 0}
     readTime: 2.5999987
     unreadTime: 0
     line: 0
     rawIndex: 51
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1801,14 +1914,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 192.56833, y: 0.19999886, z: 0}
+  - pos: {x: 121.902084, y: -4.04, z: 0}
     readTime: 2.6499987
     unreadTime: 0
     line: 0
     rawIndex: 52
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1832,14 +1945,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 202.88165, y: 0.19999886, z: 0}
+  - pos: {x: 129.4005, y: -4.04, z: 0}
     readTime: 2.6999986
     unreadTime: 0
     line: 0
     rawIndex: 53
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1863,14 +1976,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 213.19498, y: 0.19999886, z: 0}
+  - pos: {x: 136.89891, y: -4.04, z: 0}
     readTime: 2.7499986
     unreadTime: 0
     line: 0
     rawIndex: 54
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1894,14 +2007,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 222.29498, y: 0.19999886, z: 0}
+  - pos: {x: 143.86171, y: -4.04, z: 0}
     readTime: 2.7999985
     unreadTime: 0
     line: 0
     rawIndex: 55
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1925,14 +2038,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 231.39496, y: 0.19999886, z: 0}
+  - pos: {x: 150.82451, y: -4.04, z: 0}
     readTime: 2.8499985
     unreadTime: 0
     line: 0
     rawIndex: 56
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1956,14 +2069,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 236.24829, y: 0.19999886, z: 0}
+  - pos: {x: 154.57372, y: -4.04, z: 0}
     readTime: 2.8999984
     unreadTime: 0
     line: 0
     rawIndex: 57
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -1987,14 +2100,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 246.56165, y: 0.19999886, z: 0}
+  - pos: {x: 162.07213, y: -4.04, z: 0}
     readTime: 2.9499984
     unreadTime: 0
     line: 0
     rawIndex: 58
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2018,14 +2131,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 256.875, y: 0.19999886, z: 0}
+  - pos: {x: 169.57054, y: -4.04, z: 0}
     readTime: 2.9999983
     unreadTime: 0
     line: 0
     rawIndex: 59
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2049,14 +2162,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 265.97498, y: 0.19999886, z: 0}
+  - pos: {x: 176.53334, y: -4.04, z: 0}
     readTime: 3.0499983
     unreadTime: 0
     line: 0
     rawIndex: 60
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2080,14 +2193,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 275.07495, y: 0.19999886, z: 0}
+  - pos: {x: 183.49614, y: -4.04, z: 0}
     readTime: 3.0999982
     unreadTime: 0
-    line: 1
+    line: 0
     rawIndex: 61
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2111,14 +2224,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -289.125, y: -18.000002, z: 0}
+  - pos: {x: 187.24535, y: -4.04, z: 0}
     readTime: 3.1499982
     unreadTime: 0
-    line: 1
+    line: 0
     rawIndex: 62
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2142,14 +2255,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -278.81168, y: -18.000002, z: 0}
+  - pos: {x: 194.74376, y: -4.04, z: 0}
     readTime: 3.1999981
     unreadTime: 0
-    line: 1
+    line: 0
     rawIndex: 63
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2173,14 +2286,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -268.49832, y: -18.000002, z: 0}
+  - pos: {x: 202.24217, y: -4.04, z: 0}
     readTime: 3.249998
     unreadTime: 0
-    line: 1
+    line: 0
     rawIndex: 64
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2204,14 +2317,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -258.185, y: -18.000002, z: 0}
+  - pos: {x: 209.74059, y: -4.04, z: 0}
     readTime: 3.299998
     unreadTime: 0
-    line: 1
+    line: 0
     rawIndex: 65
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2235,14 +2348,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -249.08499, y: -18.000002, z: 0}
+  - pos: {x: 216.70338, y: -4.04, z: 0}
     readTime: 3.349998
     unreadTime: 0
-    line: 1
+    line: 0
     rawIndex: 66
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2266,14 +2379,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -239.985, y: -18.000002, z: 0}
+  - pos: {x: 223.66618, y: -4.04, z: 0}
     readTime: 3.399998
     unreadTime: 0
-    line: 1
+    line: 0
     rawIndex: 67
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2297,14 +2410,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -229.67166, y: -18.000002, z: 0}
+  - pos: {x: 231.1646, y: -4.04, z: 0}
     readTime: 3.449998
     unreadTime: 0
     line: 1
     rawIndex: 68
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2328,14 +2441,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -224.81833, y: -18.000002, z: 0}
-    readTime: 3.4999979
-    unreadTime: 0
+  - pos: {x: -236.95, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 69
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2359,14 +2472,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -215.71834, y: -18.000002, z: 0}
-    readTime: 3.5499978
-    unreadTime: 0
+  - pos: {x: -229.9872, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 70
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2390,14 +2503,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -205.405, y: -18.000002, z: 0}
-    readTime: 3.5999978
-    unreadTime: 0
+  - pos: {x: -222.4888, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 71
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2421,14 +2534,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -196.30501, y: -18.000002, z: 0}
-    readTime: 3.6499977
-    unreadTime: 0
+  - pos: {x: -215.526, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 72
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2452,14 +2565,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -185.99167, y: -18.000002, z: 0}
-    readTime: 3.6999977
-    unreadTime: 0
+  - pos: {x: -208.0276, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 73
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2483,14 +2596,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -175.67834, y: -18.000002, z: 0}
-    readTime: 3.7499976
-    unreadTime: 0
+  - pos: {x: -200.5292, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 74
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2514,14 +2627,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -166.57834, y: -18.000002, z: 0}
-    readTime: 3.7999976
-    unreadTime: 0
+  - pos: {x: -193.5664, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 75
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2545,14 +2658,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -161.725, y: -18.000002, z: 0}
-    readTime: 3.8499975
-    unreadTime: 0
+  - pos: {x: -189.8172, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 76
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2576,14 +2689,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -151.41168, y: -18.000002, z: 0}
-    readTime: 3.8999975
-    unreadTime: 0
+  - pos: {x: -182.3188, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 77
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2607,14 +2720,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -141.09834, y: -18.000002, z: 0}
-    readTime: 3.9499974
-    unreadTime: 0
+  - pos: {x: -174.8204, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 78
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2638,14 +2751,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -131.99834, y: -18.000002, z: 0}
-    readTime: 3.9999974
-    unreadTime: 0
+  - pos: {x: -167.8576, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 79
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2669,14 +2782,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -122.89833, y: -18.000002, z: 0}
-    readTime: 4.0499973
-    unreadTime: 0
+  - pos: {x: -160.8948, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 80
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2700,14 +2813,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -118.045, y: -18.000002, z: 0}
-    readTime: 4.0999975
-    unreadTime: 0
+  - pos: {x: -157.1456, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 81
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2731,14 +2844,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -107.73166, y: -18.000002, z: 0}
-    readTime: 4.1499977
-    unreadTime: 0
+  - pos: {x: -149.6472, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 82
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2762,14 +2875,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -97.41832, y: -18.000002, z: 0}
-    readTime: 4.199998
-    unreadTime: 0
+  - pos: {x: -142.1488, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 83
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2793,14 +2906,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -87.10498, y: -18.000002, z: 0}
-    readTime: 4.249998
-    unreadTime: 0
+  - pos: {x: -134.6504, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 84
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2824,14 +2937,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -78.004974, y: -18.000002, z: 0}
-    readTime: 4.2999983
-    unreadTime: 0
+  - pos: {x: -127.68761, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 85
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2855,14 +2968,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -68.90497, y: -18.000002, z: 0}
-    readTime: 4.3499985
-    unreadTime: 0
+  - pos: {x: -120.72481, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 86
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2886,14 +2999,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -64.051636, y: -18.000002, z: 0}
-    readTime: 4.3999987
-    unreadTime: 0
+  - pos: {x: -116.97561, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 87
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2917,14 +3030,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -53.738297, y: -18.000002, z: 0}
-    readTime: 4.449999
-    unreadTime: 0
+  - pos: {x: -109.47721, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 88
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2948,14 +3061,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -43.424957, y: -18.000002, z: 0}
-    readTime: 4.499999
-    unreadTime: 0
+  - pos: {x: -101.978806, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 89
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -2979,14 +3092,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -34.32495, y: -18.000002, z: 0}
-    readTime: 4.549999
-    unreadTime: 0
+  - pos: {x: -95.01601, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 90
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -3010,14 +3123,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -25.224945, y: -18.000002, z: 0}
-    readTime: 4.5999994
-    unreadTime: 0
+  - pos: {x: -88.05321, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 91
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -3041,14 +3154,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -14.911621, y: -18.000002, z: 0}
-    readTime: 4.6499996
-    unreadTime: 0
+  - pos: {x: -80.55481, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 92
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -3072,14 +3185,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: -4.598297, y: -18.000002, z: 0}
-    readTime: 4.7
-    unreadTime: 0
+  - pos: {x: -73.05641, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 93
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -3103,14 +3216,14 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 0.2550354, y: -18.000002, z: 0}
-    readTime: 4.75
-    unreadTime: 0
+  - pos: {x: -69.307205, y: -17.43, z: 0}
+    readTime: -1
+    unreadTime: -1
     line: 1
     rawIndex: 94
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 18.2
+    size: 13.39
     alignment: 0
     drawOrder: 0
     ev: []
@@ -3138,9 +3251,9 @@ MonoBehaviour:
     oask eoaks oeksao k
   drawText: Aaok askoaskeo kasoek oaskeokasoke oak oak ske aosk eoask oaks eoakso
     kasoek oask eoaks oeksao k
-  hyphenedText: 'Aaok askoaskeo kasoek oaskeokasoke oak oak ske aosk eoask oaks
+  hyphenedText: 'Aaok askoaskeo kasoek oaskeokasoke oak oak ske aosk eoask oaks eoakso
 
-    eoakso kasoek oask eoaks oeksao k'
+'
   font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   color:
     serializedVersion: 2
@@ -3154,7 +3267,7 @@ MonoBehaviour:
   unreadDelay: 0.05
   undrawOrder: 1
   undrawAnimName: Appear
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 82919925746793614}
   audioClips:
   - {fileID: 8300000, guid: ca347218181d44f758cfc46c3bb2a999, type: 3}
   stopPreviousSound: 1
@@ -3166,9 +3279,9 @@ MonoBehaviour:
   perlinPitchMulti: 1
   reading: 0
   unreading: 0
-  size: 18.2
+  size: 13.39
   bestFitMulti: 1
-  quality: 30
+  quality: 25
   filterMode: 1
   style: 0
   baseOffset: {x: 0, y: 3, z: 0}
@@ -3182,20 +3295,20 @@ MonoBehaviour:
   alignment: 0
   verticalLimit: 0
   verticalLimitMode: 1
-  leftoverText: 
+  leftoverText: ' kasoek oask eoaks oeksao k'
   textMaterial: {fileID: 2100000, guid: e490a80c3724140c0ad176edb075a09e, type: 2}
   textMesh: {fileID: 0}
-  rawTopLeftBounds: {x: 289.125, y: -18.4, z: 0}
-  rawBottomRightBounds: {x: -289.125, y: 18.4, z: 0}
-  topLeftBounds: {x: 110.876114, y: 45.400505, z: 0}
-  topRightBounds: {x: 494.68954, y: 45.400505, z: 0}
-  bottomLeftBounds: {x: 110.876114, y: 20.974503, z: 0}
-  bottomRightBounds: {x: 494.68954, y: 20.974503, z: 0}
-  centerBounds: {x: 302.78284, y: 33.187504, z: 0}
-  maxX: 564.19995
-  minY: -18.599998
-  unwrappedMaxX: 867.5333
-  unwrappedMinY: -18.2
+  rawTopLeftBounds: {x: 236.95, y: -9.35, z: 0}
+  rawBottomRightBounds: {x: -236.95, y: 9.35, z: 0}
+  topLeftBounds: {x: 136.1893, y: 49.436623, z: 0}
+  topRightBounds: {x: 437.7082, y: 49.436623, z: 0}
+  bottomLeftBounds: {x: 136.1893, y: 37.53875, z: 0}
+  bottomRightBounds: {x: 437.7082, y: 37.53875, z: 0}
+  centerBounds: {x: 286.94873, y: 43.487686, z: 0}
+  maxX: 468.1146
+  minY: -5.3100004
+  unwrappedMaxX: 646.4698
+  unwrappedMinY: -13.39
   onCompleteEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3227,17 +3340,44 @@ MonoBehaviour:
     m_TypeName: SuperTextMesh+PreParse, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   debugMode: 0
-  totalReadTime: 4.75001
+  totalReadTime: 3.450008
   totalUnreadTime: 0
-  currentReadTime: 1004.75
+  currentReadTime: 1003.45
   autoRead: 1
   rememberReadPosition: 1
   drawOrder: 0
   bestFit: 0
-  latestNumber: 95
-  lowestDrawnPosition: -18.000002
+  latestNumber: 69
+  lowestDrawnPosition: -4.04
   preParsedText: Aaok askoaskeo kasoek oaskeokasoke oak oak ske aosk eoask oaks eoakso
     kasoek oask eoaks oeksao k
+--- !u!114 &114349880207515476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1660460901112984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 2ee37d438f3574822b81cc2b517f352c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!114 &114362227462593180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3312,15 +3452,15 @@ MonoBehaviour:
   showAudioFoldout: 0
   showEventFoldout: 0
   info:
-  - pos: {x: 68.55889, y: -1.3999996, z: 0}
+  - pos: {x: -126.15, y: -3.44, z: 0}
     readTime: 0
     unreadTime: 0
     line: 0
     rawIndex: 0
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 20.9
-    alignment: 2
+    size: 10.92
+    alignment: 0
     drawOrder: 0
     ev: []
     ev2: []
@@ -3343,15 +3483,15 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 83.88555, y: -1.3999996, z: 0}
+  - pos: {x: -118.0787, y: -3.44, z: 0}
     readTime: 0
     unreadTime: 0
     line: 0
     rawIndex: 0
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 20.9
-    alignment: 2
+    size: 10.92
+    alignment: 0
     drawOrder: 0
     ev: []
     ev2: []
@@ -3374,15 +3514,15 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 95.496666, y: -1.3999996, z: 0}
+  - pos: {x: -111.906525, y: -3.44, z: 0}
     readTime: 0
     unreadTime: 0
     line: 0
     rawIndex: 1
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 20.9
-    alignment: 2
+    size: 10.92
+    alignment: 0
     drawOrder: 0
     ev: []
     ev2: []
@@ -3405,15 +3545,15 @@ MonoBehaviour:
     quadIndex: -1
     materialData: {fileID: 0}
     soundClipData: {fileID: 0}
-  - pos: {x: 114.074455, y: -1.3999996, z: 0}
+  - pos: {x: -102.88565, y: -3.44, z: 0}
     readTime: 0
     unreadTime: 0
     line: 0
     rawIndex: 2
     indent: 0
     drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: 20.9
-    alignment: 2
+    size: 10.92
+    alignment: 0
     drawOrder: 0
     ev: []
     ev2: []
@@ -3442,7 +3582,7 @@ MonoBehaviour:
   font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   color:
     serializedVersion: 2
-    rgba: 4281479730
+    rgba: 4287861651
   richText: 1
   readDelay: 0
   speedReadScale: 2
@@ -3463,11 +3603,11 @@ MonoBehaviour:
   perlinPitchMulti: 1
   reading: 0
   unreading: 0
-  size: 20.9
+  size: 10.92
   bestFitMulti: 1
-  quality: 45
+  quality: 23
   filterMode: 1
-  style: 3
+  style: 2
   baseOffset: {x: 0, y: 2, z: 0}
   lineSpacing: 1
   characterSpacing: 0
@@ -3476,23 +3616,23 @@ MonoBehaviour:
   breakText: 0
   insertHyphens: 0
   anchor: 3
-  alignment: 2
+  alignment: 0
   verticalLimit: 0
   verticalLimitMode: 1
   leftoverText: 
   textMaterial: {fileID: 2100000, guid: e490a80c3724140c0ad176edb075a09e, type: 2}
   textMesh: {fileID: 0}
-  rawTopLeftBounds: {x: 126.15, y: -19.5, z: 0}
-  rawBottomRightBounds: {x: -126.15, y: 19.5, z: 0}
-  topLeftBounds: {x: 333.96582, y: 79.31812, z: 0}
-  topRightBounds: {x: 501.42993, y: 79.31812, z: 0}
-  bottomLeftBounds: {x: 333.96582, y: 53.43187, z: 0}
-  bottomRightBounds: {x: 501.42993, y: 53.43187, z: 0}
-  centerBounds: {x: 417.69788, y: 66.375, z: 0}
-  maxX: 57.59111
-  minY: -18.1
-  unwrappedMaxX: 57.126667
-  unwrappedMinY: -20.9
+  rawTopLeftBounds: {x: 126.15, y: -7.48, z: 0}
+  rawBottomRightBounds: {x: -126.15, y: 7.48, z: 0}
+  topLeftBounds: {x: 136.18933, y: 37.716896, z: 0}
+  topRightBounds: {x: 296.7152, y: 37.716896, z: 0}
+  bottomLeftBounds: {x: 136.18933, y: 28.198608, z: 0}
+  bottomRightBounds: {x: 296.7152, y: 28.198608, z: 0}
+  centerBounds: {x: 216.45227, y: 32.957752, z: 0}
+  maxX: 29.911304
+  minY: -4.04
+  unwrappedMaxX: 29.436522
+  unwrappedMinY: -10.92
   onCompleteEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3532,7 +3672,7 @@ MonoBehaviour:
   drawOrder: 0
   bestFit: 0
   latestNumber: 3
-  lowestDrawnPosition: -1.3999996
+  lowestDrawnPosition: -3.44
   preParsedText: Name
 --- !u!114 &114676274165625548
 MonoBehaviour:
@@ -3576,6 +3716,13 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1672539588018512}
   m_CullTransparentMesh: 0
+--- !u!222 &222601723977852486
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1660460901112984}
+  m_CullTransparentMesh: 0
 --- !u!222 &222617074770363048
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -3600,13 +3747,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 224715766770202676}
-  m_RootOrder: 2
+  m_Father: {fileID: 224214521797235968}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 629.3, y: 0}
-  m_SizeDelta: {x: 252.3, y: 39}
+  m_AnchoredPosition: {x: 190.70003, y: -35.199993}
+  m_SizeDelta: {x: 252.3, y: 14.96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224056291844360972
 RectTransform:
@@ -3618,13 +3765,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 224715766770202676}
-  m_RootOrder: 3
+  m_Father: {fileID: 224214521797235968}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 56.17, y: 0.0000076293945}
-  m_SizeDelta: {x: -221.75, y: -63.2}
+  m_AnchoredPosition: {x: 27, y: 6.6}
+  m_SizeDelta: {x: -75.1, y: -31.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224214521797235968
 RectTransform:
@@ -3635,14 +3782,16 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 224056291844360972}
+  - {fileID: 224005028751680326}
   m_Father: {fileID: 224715766770202676}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 38, y: 0}
-  m_SizeDelta: {x: -165, y: -42.7}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 24, y: -43.850002}
+  m_SizeDelta: {x: 549, y: 50.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224580312518194674
 RectTransform:
@@ -3655,12 +3804,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224715766770202676}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 85.9, y: 73.177}
-  m_SizeDelta: {x: 135.6, y: 135.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -237, y: -43.85}
+  m_SizeDelta: {x: 95.630005, y: 95.56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224715766770202676
 RectTransform:
@@ -3672,15 +3821,32 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 224725654509233884}
   - {fileID: 224214521797235968}
   - {fileID: 224580312518194674}
-  - {fileID: 224005028751680326}
-  - {fileID: 224056291844360972}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 50}
-  m_SizeDelta: {x: 0, y: 100}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -0.000061035, y: 105.6}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!224 &224725654509233884
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1660460901112984}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 224715766770202676}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 137.6}
+  m_SizeDelta: {x: 0.000061035, y: 275.3}
   m_Pivot: {x: 0.5, y: 0.5}
