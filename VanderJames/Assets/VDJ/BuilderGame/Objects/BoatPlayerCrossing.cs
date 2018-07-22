@@ -13,7 +13,7 @@ namespace VDJ.BuilderGame.Objects
 
             if (playerController != null)
             {
-                playerController.OnTouchedBoat(this);
+                //playerController.OnTouchedBoat(this);
             }
         }
         private void OnTriggerExit(Collider other)
@@ -22,7 +22,7 @@ namespace VDJ.BuilderGame.Objects
 
             if (playerController != null)
             {
-                playerController.OnLeftBoatTouch(this);
+                //playerController.OnLeftBoatTouch(this);
             }
         }
     }
